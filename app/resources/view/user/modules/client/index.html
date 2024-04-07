@@ -1,0 +1,64 @@
+<section id="modulo">
+    <div class="container mt-1">
+        <h2>Clientes</h2>
+        {{status}}
+        <a href="{{URL}}/user/client/new">
+            <button type="button" class="btn-new-client">Novo Cliente</button>
+        </a>
+        <button type="button" class="btn-pesquisar">pesquisar</button>
+
+        {{itens}}
+
+        {{pagination}}
+    </div>
+</section>
+
+<!-- Modal para exibir os detalhes do cliente -->
+<div class="modal fade" id="detalhesClienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">Detalhes do Cliente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Nome:</strong> <span id="modalNome"></span></p>
+                <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+                <p><strong>Telefone:</strong> <span id="modalTelefone"></span></p>
+                <p><strong>Endereço:</strong> <span id="modalEndereco"></span></p>
+                <p><strong>CPF:</strong> <span id="modalCPF"></span></p>
+                <p><strong>CEP:</strong> <span id="modalCEP"></span></p>
+                <p><strong>Cidade:</strong> <span id="modalCidade"></span></p>
+                <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script JavaScript para preencher os detalhes do cliente -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.detalhes-btn').on('click', function() {
+            var nome = $(this).data('nome');
+            var email = $(this).data('email');
+            var telefone = $(this).data('telefone');
+            var endereco = $(this).data('endereco');
+            var cpf = $(this).data('cpf');
+            var cep = $(this).data('cep');
+            var cidade = $(this).data('cidade');
+            var estado = $(this).data('estado');
+
+            $('#modalNome').text(nome);
+            $('#modalEmail').text(email);
+            $('#modalTelefone').text(telefone);
+            $('#modalEndereco').text(endereco);
+            $('#modalCPF').text(cpf);
+            $('#modalCEP').text(cep);
+            $('#modalCidade').text(cidade);
+            $('#modalEstado').text(estado);
+        });
+    });
+</script>

@@ -1,0 +1,19 @@
+/* Estilo para as informações de serviço */
+.servico-info {
+    margin-bottom: 10px;
+    background-color: rgb(100, 90, 200);
+    color: white;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    padding: 20px 30px 10px 30px;
+    width: 300px;
+}
+
+.servico-info p {
+    margin-bottom: 0.5rem;
+}
+
+.servico-info .btn {
+    margin-right: 0.5rem;
+}
+

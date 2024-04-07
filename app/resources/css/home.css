@@ -1,0 +1,15 @@
+.tbl_budget_opened {
+  background-color: rgb(100, 90, 200);
+  color: white;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  padding: 10px 30px 0px 30px;
+}
+
+.tbl_budget_closed {
+  background-color: rgb(100, 90, 200);
+  color: white;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  padding: 10px 30px 0px 30px;
+}

@@ -1,0 +1,59 @@
+<?php  
+
+use \App\Http\Response;
+use \App\Controller\Api;
+
+//ROTA RAIZ DE LISTAGEM DE profissionais
+$obRouter->get('/api/v1/profissional',[
+    'middlewares' => [
+        'api',
+        'cache'
+    ],
+    function($request){
+        return new Response(200,Api\Profissional::getProfissionais($request),'application/json');
+    }
+]);
+
+//ROTA DE CONSULTA INDIVIDUAL DE DEPOIMENTOS
+$obRouter->get('/api/v1/profissional{id}',[
+    'middlewares' => [
+        'api',
+        'cache'
+    ],
+    function($request,$id){
+        return new Response(200,Api\Profissional::getProfissional($request,$id),'application/json');
+    }
+]);
+
+//ROTA DE CADASTRO DE DEPOIMENTOS
+$obRouter->post('/api/v1/profissional',[
+    'middlewares' => [
+        'api',
+        'user-basic-auth'
+    ],
+    function($request){
+        return new Response(201,Api\Profissional::setNewProfissional($request),'application/json');
+    }
+]);
+
+//ROTA DE ATUALIZAÇÃO DE DEPOIMENTOS
+$obRouter->put('/api/v1/Profissional/{id}',[
+    'middlewares' => [
+        'api',
+        'user-basic-auth'
+    ],
+    function($request,$id){
+        return new Response(200,Api\Profissional::setEditProfissional($request,$id),'application/json');
+    }
+]);
+
+//ROTA DE EXCLUSÃO DE DEPOIMENTOS
+$obRouter->delete('/api/v1/Profissional/{id}',[
+    'middlewares' => [
+        'api',
+        'user-basic-auth'
+    ],
+    function($request,$id){
+        return new Response(200,Api\Profissional::setDeleteProfissional($request,$id),'application/json');
+    }
+]);

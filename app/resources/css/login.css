@@ -1,0 +1,63 @@
+/* Estilo para a caixa de login */
+.login-box {
+    background-color: rgb(100, 90, 200);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0px 40px 30px 40px;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    color: white;
+  }
+  
+  /* Estilo para o título "Login" */
+  .login-box h1 {
+    text-align: center;
+  }
+  
+  /* Estilo para os inputs e labels */
+  .inputBox {
+    position: relative;
+  }
+  
+  .inputUser {
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+    color: white;
+  }
+  
+  .inputLabel {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    pointer-events: none;
+    font-size: 12px;
+  }
+  
+  /* Estilo para o botão de login */
+  .login-button {
+    text-align: center;
+    margin-top: 12px; /* Adicionando margem acima do botão */
+  }
+  
+  .login-button button {
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 8px;
+    margin-right: 2px;
+    background-color: white;
+  }
+  
+  /* Estilo para o hover do botão */
+  button:hover {
+    cursor: pointer;
+    background-color: rgb(150, 180, 255);
+    font-weight: bolder;
+  }

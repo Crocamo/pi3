@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="css/pages.css">
+        <link rel="stylesheet" href="css/login.css">
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="login-box">
+            <h1>Login</h1>
+            <div>
+                {{status}}
+            </div>        
+        
+            <form method="post">
+        
+                <div class="inputBox">
+                    <input type="text" class="inputUser" name="login" placeholder="login" id="login" required autofocus>
+                    <label for="usuario" class="inputLabel">Usuário</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="password" class="inputUser" name="senha" id="senha" placeholder="**********" required>
+                    <label for="senha" class="inputLabel">Senha</label>
+                </div>
+                <div class="login-button">
+                    <button type="submit" name="submit" id="submit" >Entrar</button>
+                </div>
+        
+            </form>
+        
+        </div>
+        <script src="{{URL}}/app/resources/js/pages.js"></script>
+       <!-- Scripts JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+    
+</html>

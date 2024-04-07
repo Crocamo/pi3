@@ -1,0 +1,137 @@
+<section id="modulo">
+    <div class="container mt-1">
+        <h2>Sistema de Orçamento</h2>
+
+        <div class="tbl_budget_opened">
+            <!-- Lista de orçamentos em aberto -->
+            <h4>Orçamentos em aberto</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome Cliente</th>
+                        <th>Valor</th>
+                        <th>Data do Orçamento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{budgetOpen}}
+                    {{budgetOpenPagination}}
+                    <!-- Fim das entradas fictícias para orçamentos em aberto -->
+                </tbody>
+            </table>
+        </div>
+        <div class="tbl_budget_closed">
+            <!-- Lista de orçamentos concluídos -->
+            <h4>Orçamentos concluídos</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome Cliente</th>
+                        <th>Valor</th>
+                        <th>Data de Conclusão</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Entradas fictícias para orçamentos concluídos -->
+                    {{budgetClose}}
+                    {{budgetClosePagination}}
+                    <!-- Fim das entradas fictícias para orçamentos concluídos -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Modais para exibir detalhes de orçamentos -->
+<div class="modal fade" id="detalhesOrcamentoModal" tabindex="-1"
+    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">Detalhes do
+                    Orçamento</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Nomecliente:</strong> <span
+                        id="modalNomeCli"></span></p>
+                <p><strong>Telefone:</strong> <span
+                        id="modalTelefone"></span></p>
+                <p><strong>Endereço:</strong> <span
+                        id="modalEndereco"></span></p>
+                <p><strong>CEP:</strong> <span id="modalCEP"></span></p>
+                <p><strong>Cidade:</strong> <span id="modalCidade"></span></p>
+                <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
+                <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+                <p><strong>Data inicial:</strong> <span
+                        id="modalData"></span></p>
+                <p><strong>Valor Total:</strong> <span
+                        id="modalValor"></span></p>
+                <div class="modal-service"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script JavaScript para preencher os detalhes do cliente -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('.detalhes-btn').on('click', function() {
+        var NomeCli = $(this).data('nomecli');
+        var telefone = $(this).data('telefone');
+        var endereco = $(this).data('endereco');
+        var cep = $(this).data('cep');
+        var cidade = $(this).data('cidade');
+        var estado = $(this).data('estado');
+        var status = $(this).data('status');
+        var data_ini = $(this).data('data_ini');
+        var total = $(this).data('total');
+
+        $('#modalNomeCli').text(NomeCli);
+        $('#modalTelefone').text(telefone);
+        $('#modalEndereco').text(endereco);
+        $('#modalCEP').text(cep);
+        $('#modalCidade').text(cidade);
+        $('#modalEstado').text(estado);
+        $('#modalStatus').text(status);
+        $('#modalData').text(data_ini);
+        $('#modalValor').text(total);
+
+        // Limpar o conteúdo anterior do modal
+        $('.modal-service').empty();
+        var servicosTexto = $(this).data('servicos');
+        // Dividir a string em cada serviço
+        var servicosArray = servicosTexto.split('sv=').filter(Boolean); // Filtrar para remover elementos vazios
+
+        // Iterar sobre cada serviço
+        servicosArray.forEach(function(servicoTexto) {
+            // Dividir o texto do serviço em partes
+            var partes = servicoTexto.split('/rs=');
+
+            // Extrair o nome do serviço, preço e observação
+            var servico = partes[0];
+            var preco = partes[1].split('/')[0]; // Extrair apenas o valor do preço
+            var obss = partes[1].split('/obs=')[1]; // Extrair apenas a observação
+            var obs = obss.split('/')[0];
+
+            // Criar os elementos HTML para exibir os detalhes do serviço no modal
+            var servicoHTML = '<p><strong>Servico:</strong> ' + servico + '</p>';
+            var precoHTML = '<p><strong>Preço:</strong> ' + preco + '</p>';
+            var obsHTML = '<p><strong>Obs:</strong> ' + obs + '</p>';
+
+            // Adicionar os elementos HTML ao modal
+            $('.modal-service').append(servicoHTML + precoHTML + obsHTML);
+        });
+    });
+});
+</script>

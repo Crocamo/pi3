@@ -1,0 +1,94 @@
+
+<div class="d-flex justify-content-center">
+
+    <div class="card mt-3 text-dark text-center" style="width: 100%;">
+
+        <div class="card-header">
+            <h1>{{title}}</h1>
+        </div>
+
+        <div class="card-body">
+
+            {{status}}
+
+            <form method="post">
+                <div class="row">
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Nome</label>
+                        <input type="text" name="nome" class="form-control"
+                            value="{{nome_cli}}" required>
+                    </div>
+
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Status</label>
+                        <input type="text" name="ativo" class="form-control"
+                            value="{{ativo}}" readonly>
+                    </div>
+
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Desconto/acrescimo</label>
+                        <input type="text" name="valor_bonus"
+                            class="form-control"
+                            value="{{valor_bonus}}" required>
+                    </div>
+
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Telefone</label>
+                        <input type="text" name="telefone" class="form-control"
+                            value="{{telefone}}" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Endereço</label>
+                        <input type="text" name="endereco" class="form-control"
+                            value="{{endereco}}" required>
+                    </div>
+
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">CEP</label>
+                        <input type="text" name="cep" class="form-control"
+                            value="{{cep}}" required>
+                    </div>
+
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Cidade</label>
+                        <input type="text" name="cidade" class="form-control"
+                            value="{{cidade}}" required>
+                    </div>
+
+                    <div class="form-group col">
+                        <label
+                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Estado</label>
+                        <input type="text" name="estado" class="form-control"
+                            value="{{estado}}" required>
+                    </div>
+                </div>
+                <div class="row">
+                    {{servicos}}
+                </div>
+                <div class="form-group col">
+                    <button type="submit"
+                        class="btn btn-primary">Atualizar dados</button>
+
+                    <a href="{{URL}}/user/budget/{{id_budget}}/concluir">
+                        <button type="button" class="btn btn-primary">Marcar
+                            como concluido</button>
+                    </a>
+                    <a href="{{URL}}/user/budget/{{id_budget}}/cancel">
+                        <button type="button" class="btn btn-danger">Marcar como
+                            cancelado</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

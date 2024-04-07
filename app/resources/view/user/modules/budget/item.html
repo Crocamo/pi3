@@ -1,0 +1,30 @@
+
+<h4>Cliente</h4>
+<select id="selectCliente" class="form-control mb-2" name="selectCliente">
+    {{optionsC}}
+</select>
+<div class="row">
+    <p style="padding-right: 5px;"><strong>Nome do Cliente:</strong>
+         <input type="text" id="nome_cli" name="nome_cli">
+    </p>
+    <p style="padding-right: 5px;"><strong>Telefone:</strong> 
+        <input type="text" id="telefone" name="telefone" oninput="formatarTelCel(this)">
+    </p>
+    <p style="padding-right: 5px;"><strong>Endereço:</strong> 
+        <input type="text" id="endereco" name="endereco">
+    </p>
+</div>
+<div class="row" >
+    <p style="padding-right: 5px;"><strong>Estado:</strong> <input type="text" id="estado" name="estado"></p>
+    <p style="padding-right: 5px;"><strong>Cidade:</strong> <input type="text" id="cidade" name="cidade"></p>
+    <p style="padding-right: 5px;"><strong>CEP:</strong> <input type="text" id="cep" name="cep" oninput="formatarCEP(this)"></p>
+</div>
+
+<div class="row" >
+<div class="col" >
+<select id="selectServico" class="form-control mb-2">
+    {{optionsS}}
+</select></div>
+<div class="col" >
+<button id="btnAdicionar" type="button" class="btn btn-primary">Adicionar</button>
+</div></div>
