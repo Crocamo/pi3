@@ -41,19 +41,24 @@ class Client extends Page
         }
     }
 
+
     /**
      * Método responsável por obter a renderização dos itens de Clientes para a página
      * @param Request $request
      * @param Pagination $obPagination
      * @return string
      */
-    private static function getClientItens($request, &$obPagination)
+    private static function getClientItens($request, &$obPagination, $where=null)
     {
         //OBJETOS
         $itens = '';
 
+        if (!$where==null) {
+            $where='nome="'.$where.'"';
+        } 
+        
         //QUANTIDADE TOTAL DE REGISTROS
-        $quantidadetotal = entityClient::getClients(null, null, null, 'COUNT(*) as qtd')->fetchObject()->qtd;
+        $quantidadetotal = entityClient::getClients($where, null, null, 'COUNT(*) as qtd')->fetchObject()->qtd;
 
         //PÁGINA ATUAL
         $queryParams = $request->getQueryParams();
@@ -63,10 +68,11 @@ class Client extends Page
         $obPagination = new Pagination($quantidadetotal, $paginaAtual, 3);
 
         //RESULTADOS DA PÁGINA
-        $results = entityClient::getClients(null, 'id_cli DESC', $obPagination->getLimit());
-
+        $results = entityClient::getClients($where, 'id_cli DESC', $obPagination->getLimit());
+        
         //RENDERIZA O ITEM
         while ($obClient = $results->fetchObject(entityClient::class)) {
+   
             // Verificar o comprimento do CEP
             $cep = strval($obClient->cep);
             if (strlen($cep) < 8) {
@@ -105,13 +111,32 @@ class Client extends Page
         //CONTEÚDO DA HOME
         $content = View::render('user/modules/client/index', [
             'title'      => 'Área de Administração de Clientes',
-            'itens'      => self::getClientItens($request, $obPagination),
+            'itens'      => self::getClientItens($request, $obPagination, null),
             'pagination' => parent::getPagination($request, $obPagination),
             'status'     => self::getStatus($request)
         ]);
 
         // //RETORNA A PÁGINA COMPLETA
         return parent::getPainel('Clientes > Univesp', $content, 'client');
+    }
+
+    public static function setClient($request){
+        //POST VARS
+        $postVars = $request->getPostVars();
+
+        $where= $postVars['InputSearch'];
+        //CONTEÚDO DA HOME
+        
+        $content = View::render('user/modules/client/index', [
+            'title'      => 'Área de Administração de Clientes',
+            'itens'      => self::getClientItens($request, $obPagination, $where),
+            'pagination' => parent::getPagination($request, $obPagination),
+            'status'     => self::getStatus($request)
+        ]);
+
+        // //RETORNA A PÁGINA COMPLETA
+        return parent::getPainel('Clientes > Univesp', $content, 'client');
+
     }
 
 

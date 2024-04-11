@@ -26,7 +26,7 @@
                         <input type="text" name="ativo" class="form-control"
                             value="{{ativo}}" readonly>
                     </div>
-
+                    
                     <div class="form-group col">
                         <label
                             style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Desconto/acrescimo</label>
@@ -36,13 +36,23 @@
                     </div>
 
                     <div class="form-group col">
+                        <label for="desconto">Desconto:</label>
+                        <input type="checkbox" class="form-control" id="desconto" name="desconto" {{checked}}>
+                    </div>
+
+                    <div class="form-group col">
+                        <label for="porcentagem">porcentagem:</label>
+                        <input type="checkbox" class="form-control" id="porcentagem" name="porcentagem" {{checkedPercent}}>
+                    </div>
+                </div>
+                <div class="row">    
+                    <div class="form-group col">
                         <label
                             style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Telefone</label>
                         <input type="text" name="telefone" class="form-control"
                             value="{{telefone}}" required>
                     </div>
-                </div>
-                <div class="row">
+               
                     <div class="form-group col">
                         <label
                             style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Endereço</label>

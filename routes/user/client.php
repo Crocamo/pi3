@@ -13,6 +13,16 @@ $obRouter->get('/user/client', [
     }
 ]);
 
+//ROTA DE PESQUISA DE CLIENTE 
+$obRouter->post('/user/client', [
+    'middlewares' => [
+        'required-user-login'
+    ],
+    function ($request) {
+        return new Response(200, User\Client::setClient($request));
+    }
+]);
+
 //ROTA DE CADASTRO DE UM NOVO CLIENTE 
 $obRouter->get('/user/client/new', [
     'middlewares' => [
@@ -32,6 +42,7 @@ $obRouter->post('/user/client/new', [
         return new Response(200, User\Client::setNewClient($request));
     }
 ]);
+
 
 //ROTA DE EDIÇÃO DE UM CLIENTE 
 $obRouter->get('/user/client/{id}/edit', [

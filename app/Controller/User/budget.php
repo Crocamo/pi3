@@ -12,7 +12,8 @@ use \App\model\Entity\BudgetService as EntityBudgetServ;
 class Budget extends Page
 {
 
-    private static function formatar($valor, $campo){
+    private static function formatar($valor, $campo)
+    {
 
         $valor = preg_replace('/[^0-9]/', '', $valor); // Remove todos os caracteres não numéricos
         switch ($campo) {
@@ -24,18 +25,18 @@ class Budget extends Page
                     return substr($valor, 0, 4) . '-' . substr($valor, 4, 4);
                 } elseif (strlen($valor) == 9) {
                     return substr($valor, 0, 1) . ' ' . substr($valor, 1, 4) . '-' . substr($valor, 5, 4);
-                }elseif (strlen($valor) == 10) {
+                } elseif (strlen($valor) == 10) {
                     return '(' . substr($valor, 0, 2) . ') ' . substr($valor, 2, 4) . '-' . substr($valor, 6, 4);
-                }elseif (strlen($valor) == 11) {
+                } elseif (strlen($valor) == 11) {
                     return '(' . substr($valor, 0, 2) . ') ' . substr($valor, 2, 1) . ' ' . substr($valor, 3, 4) . '-' . substr($valor, 7, 4);
-                }elseif (strlen($valor) == 12) {
-                    return '+' .substr($valor, 0, 2) .' (' . substr($valor, 2, 2) . ') ' .  substr($valor, 4, 4) . '-' . substr($valor, 8, 4);
-                }elseif (strlen($valor) >= 13) {
-                    return '+' .substr($valor, 0, 2) .'(' . substr($valor, 2, 2) . ') ' . substr($valor, 4, 1) . ' ' . substr($valor, 5, 4) . '-' . substr($valor, 9, 4);
+                } elseif (strlen($valor) == 12) {
+                    return '+' . substr($valor, 0, 2) . ' (' . substr($valor, 2, 2) . ') ' .  substr($valor, 4, 4) . '-' . substr($valor, 8, 4);
+                } elseif (strlen($valor) >= 13) {
+                    return '+' . substr($valor, 0, 2) . '(' . substr($valor, 2, 2) . ') ' . substr($valor, 4, 1) . ' ' . substr($valor, 5, 4) . '-' . substr($valor, 9, 4);
                 }
-    
+
                 return $valor; // Retorna sem formatação se o comprimento não corresponder aos padrões esperados
-            
+
             default:
                 # code...
                 break;
@@ -60,14 +61,14 @@ class Budget extends Page
 
                     // Verificar o comprimento do CEP
                     $cep = strval($obClient->cep);
+
                     if (strlen($cep) < 8) {
                         // Adicionar zero na frente se o comprimento for menor que 8
                         $cep = str_pad($cep, 8, '0', STR_PAD_LEFT);
                     }
 
-                    
-                    $telefone_formatado = self::formatar($obClient->telefone,'tel');
-                    $cep_formatado = self::formatar($cep,'cep');
+                    $telefone_formatado = self::formatar($obClient->telefone, 'tel');
+                    $cep_formatado = self::formatar($cep, 'cep');
 
                     $obValue = $obClient->id_cli . '//' . $obClient->nome . '//' . $obClient->endereco . '//' . $obClient->estado . '//' . $obClient->cidade . '//' . $cep_formatado . '//' . $telefone_formatado;
                     $options .= View::render('user/modules/budget/option', [
@@ -152,21 +153,21 @@ class Budget extends Page
         $tel = $postVars['telefone'];
         $cep = $postVars['cep'];
         $valor = '';
-        if(isset($postVars['desconto'])){
-            $valor='-';
-        }else{
-            $valor='+';
+        if (isset($postVars['desconto'])) {
+            $valor = '-';
+        } else {
+            $valor = '+';
         }
 
-        if(isset($postVars['porcentagem'])){
-            $valor.='%';
-        }else{
-            $valor.='/';
+        if (isset($postVars['porcentagem'])) {
+            $valor .= '%';
+        } else {
+            $valor .= '/';
         }
-        $t=$postVars['desconto-acrescimo'];
+        $t = $postVars['desconto-acrescimo'];
         $val = preg_replace('/[^0-9]/', '', $t);
         $valor .= $val;
-        
+
         // Remover todos os caracteres não numéricos
         $tel_limpo = preg_replace('/[^0-9]/', '', $tel);
         $cep_limpo = preg_replace('/[^0-9]/', '', $cep);
@@ -210,7 +211,9 @@ class Budget extends Page
                 $indice = substr($chave, 7); // 'servico' tem 7 caracteres
                 $dadosDinamicos[$indice]['servico'] = $valor;
             } elseif (strpos($chave, 'qtd_servico') === 0) {
-                if(!$valor){$valor=1;}
+                if (!$valor) {
+                    $valor = 1;
+                }
                 // Repita o mesmo para 'qtd_servico'
                 $indice = substr($chave, 11); // 'qtd_servico' tem 11 caracteres
                 $dadosDinamicos[$indice]['qtd_servico'] = $valor;
@@ -255,11 +258,11 @@ class Budget extends Page
             if ($obBudgetServ instanceof EntityBudgetServ) {
                 //CONTEÚDO DO FORMULÁRIO 
                 $content .= View::render('user/modules/budget/formServ', [
-                    'idBludServ' => $obBudgetServ->id_serv_orc,
+                    'idBludServ'=> $obBudgetServ->id_serv_orc,
                     'servico'   => $obBudgetServ->servico,
                     'tipo'      => $obBudgetServ->tipo,
                     'preco'     => $obBudgetServ->preco,
-                    'observacao' => $obBudgetServ->observacao    ?? '',
+                    'observacao'=> $obBudgetServ->observacao    ?? '',
                     'qtd_serv'  => $obBudgetServ->qtd_servico,
                     'count'     => $count
                 ]);
@@ -293,22 +296,58 @@ class Budget extends Page
             $cep = str_pad($cep, 8, '0', STR_PAD_LEFT);
         }
 
-        $telefone_formatado = self::formatar($obBudget->telefone,'tel');
-        $cep_formatado = self::formatar($cep,'cep');
+        $telefone_formatado = self::formatar($obBudget->telefone, 'tel');
+        $cep_formatado = self::formatar($cep, 'cep');
+        $ativo = '';
+        switch ($obBudget->ativo) {
+            case 0:
+                $ativo = 'Ativo';
+                break;
+            case '1':
+                $ativo = 'Cancelado';
+                break;
+            default:
+                $ativo = 'Concluido';
+                break;
+        }
+ 
+        $valor_bonus = $obBudget->valor_bonus;
+        // Extrair os dois primeiros dígitos especiais
+        $digito1 = $valor_bonus[0]; // Primeiro dígito
+        $digito2 = $valor_bonus[1]; // Segundo dígito
+
+        // Extrair o restante da string (após os dois dígitos especiais)
+        $restante = doubleval(substr($valor_bonus, 2));
+        $checkedPercent = '';
+        $checked = '';
+
+        if ($digito1 == '-') {
+            $checked = 'checked';
+        }
+
+        if ($digito2 == '%') {
+            $checkedPercent = 'checked';
+        }
+
+        if ($digito2 == '/') {
+            $restante = $restante / 100;
+        }
 
         //CONTEÚDO DO FORMULÁRIO 
         $content = View::render('user/modules/budget/form', [
             'title'      => 'Editar Orçamento',
             'id_budget'  =>  $obBudget->id_orcamento,
             'nome_cli'   =>  $obBudget->nome_cli    ?? '',
-            'ativo'      =>  $obBudget->ativo, //TODO criar select
-            'valor_bonus'=>  $obBudget->valor_bonus ?? '',
+            'ativo'      =>  $ativo, 
+            'valor_bonus'=>  $restante              ?? '',
             'endereco'   =>  $obBudget->endereco    ?? '',
             'cep'        =>  $cep_formatado         ?? '',
             'cidade'     =>  $obBudget->cidade      ?? '',
             'estado'     =>  $obBudget->estado      ?? '', //TODO criar select
             'telefone'   =>  $telefone_formatado    ?? '',
             'servicos'   =>  self::services($obBudget->id_orcamento),
+            'checked'    =>  $checked,
+            'checkedPercent' => $checkedPercent,
 
             'status'   => self::getStatus($request)
         ]);
@@ -336,13 +375,37 @@ class Budget extends Page
         //POST VARS
         $postVars = $request->getPostVars();
 
+        // Remover todos os caracteres não numéricos
+        $tel_limpo = preg_replace('/[^0-9]/', '', $postVars['telefone']);
+        $cep_limpo = preg_replace('/[^0-9]/', '', $postVars['cep']);
+
+        // Obtenha os valores dos campos do formulário
+        $desconto = isset($postVars['desconto']) && $postVars['desconto'] == 'on';
+        $porcentagem = isset($postVars['porcentagem']) && $postVars['porcentagem'] == 'on';
+        $valor_bonus = $postVars['valor_bonus'];
+
+        // Construa a string $valorBonus com base nas condições
+        $valorBonus = ($desconto ? '-' : '+') . ($porcentagem ? '%' : '/') . $valor_bonus;
+
+        $ativo = '';
+        switch ($postVars['ativo']) {
+            case 'Ativo':
+                $ativo = 0;
+                break;
+            case 'Cancelado':
+                $ativo = 1;
+                break;
+            default:
+                $ativo = 2;
+                break;
+        }
         //Atualiza INSTANCIA 
         $obBudget->nome_cli     = $postVars['nome'] ?? $obBudget->nome_cli;
-        $obBudget->ativo        = $postVars['ativo'] ?? $obBudget->ativo;
-        $obBudget->valor_bonus  = $postVars['valor_bonus'] ?? $obBudget->valor_bonus;
-        $obBudget->telefone     = $postVars['telefone'] ?? $obBudget->telefone;
+        $obBudget->ativo        = $ativo ?? $obBudget->ativo;
+        $obBudget->valor_bonus  = $valorBonus ?? $obBudget->valor_bonus;
+        $obBudget->telefone     = $tel_limpo ?? $obBudget->telefone;
         $obBudget->endereco     = $postVars['endereco'] ?? $obBudget->endereco;
-        $obBudget->cep          = $postVars['cep'] ?? $obBudget->cep;
+        $obBudget->cep          = $cep_limpo ?? $obBudget->cep;
         $obBudget->cidade       = $postVars['cidade'] ?? $obBudget->cidade;
         $obBudget->estado       = $postVars['estado'] ?? $obBudget->estado;
 
@@ -351,30 +414,25 @@ class Budget extends Page
         $dadosDinamicos = array();
         // Itera sobre as chaves do array $_POST
         foreach ($postVars as $chave => $valor) {
-            
+
             // Verifica se a chave começa com o prefixo desejado, por exemplo, 'tipo'
             if (strpos($chave, 'id') === 0) {
                 // Extrai o índice do tipo (0, 1, 2, ...)
                 $indice = substr($chave, 2); // 'id' tem 2 caracteres
                 // Armazena o valor na posição correspondente do array $dadosDinamicos
                 $dadosDinamicos[$indice]['id'] = $valor;
-
-            } elseif  (strpos($chave, 'tipo') === 0) {
+            } elseif (strpos($chave, 'tipo') === 0) {
                 $indice = substr($chave, 4); // 'tipo' tem 4 caracteres
                 $dadosDinamicos[$indice]['tipo'] = $valor;
-
             } elseif (strpos($chave, 'servico') === 0) {
                 $indice = substr($chave, 7); // 'servico' tem 7 caracteres
                 $dadosDinamicos[$indice]['servico'] = $valor;
-
             } elseif (strpos($chave, 'qtd_servico') === 0) {
                 $indice = substr($chave, 11); // 'qtd_servico' tem 11 caracteres
                 $dadosDinamicos[$indice]['qtd_servico'] = $valor;
-
             } elseif (strpos($chave, 'observacao') === 0) {
                 $indice = substr($chave, 10); // 'observacao' tem 10 caracteres
                 $dadosDinamicos[$indice]['observacao'] = $valor;
-
             } elseif (strpos($chave, 'preco') === 0) {
                 $indice = substr($chave, 5); // 'preco' tem 5 caracteres
                 // $parts = explode('R$ ', $valor);
@@ -391,22 +449,48 @@ class Budget extends Page
             // Verifica se ainda há dados dinâmicos para atualizar
             if (isset($dadosDinamicos[$index])) {
                 // Atualiza o objeto $obBludgetServ com os valores de $dadosDinamicos
-                $obBludgetServ->tipo        = $dadosDinamicos[$index]['tipo'] ?? $obBludgetServ->tipo;
-                $obBludgetServ->servico     = $dadosDinamicos[$index]['servico'] ?? $obBludgetServ->servico;
-                $obBludgetServ->qtd_servico = $dadosDinamicos[$index]['qtd_servico'] ?? $obBludgetServ->qtd_servico;
-                $obBludgetServ->preco       = $dadosDinamicos[$index]['preco'] ?? $obBludgetServ->preco;
-                $obBludgetServ->observacao  = $dadosDinamicos[$index]['observacao'] ?? $obBludgetServ->observacao;
-        
+                $obBludgetServ->tipo        = $dadosDinamicos[$index]['tipo']           ?? $obBludgetServ->tipo;
+                $obBludgetServ->servico     = $dadosDinamicos[$index]['servico']        ?? $obBludgetServ->servico;
+                $obBludgetServ->qtd_servico = $dadosDinamicos[$index]['qtd_servico']    ?? $obBludgetServ->qtd_servico;
+                $obBludgetServ->preco       = $dadosDinamicos[$index]['preco']          ?? $obBludgetServ->preco;
+                $obBludgetServ->observacao  = $dadosDinamicos[$index]['observacao']     ?? $obBludgetServ->observacao;
+
                 // Incrementa o índice para o próximo conjunto de dados dinâmicos
                 $index++;
             }
             // Atualiza o objeto no banco de dados
             $obBludgetServ->atualizar();
         }
-         //REDIRECIONA O USUÁRIO
-         $request->getRouter()->redirect('/user?status=updated');
+        //REDIRECIONA O USUÁRIO
+        $request->getRouter()->redirect('/user?status=updated');
+    }
 
-        
+    
+    /**
+     * Método responsável por remover serviço de um orçamento de um orçamento
+     * @param Request $request
+     * @param interger $id
+     * @return string
+     */
+    public static function getdeleteBlutServ($request, $id)
+    {
+        $obBludgetServ = EntityBudgetServ::getServiceBudgetById($id);
+        $id_orcamento= $obBludgetServ->id_orcamento;
+
+        // OBTÉM O DEPOIMENTO DO BANCO DE DADOS
+        $obBludgetServ = EntityBudgetServ::getServiceBudgetById($id);
+
+        //VALIDA A INSTANCIA
+        if (!$obBludgetServ instanceof EntityBudgetServ) {
+           $request->getRouter()->redirect('/user/budget/{'.$id_orcamento.'}/edit');
+        }
+
+         //EXCLUI O DEPOIMENTO
+         $obBludgetServ->excluir();
+ 
+         //REDIRECIONA O USUÁRIO
+         $request->getRouter()->redirect('/user/budget/'.$id_orcamento.'/edit?status=ServiceDeleted');
+        //user/budget/78/edit
     }
 
     /**
@@ -417,20 +501,20 @@ class Budget extends Page
      */
     public static function getConcluirBudget($request, $id)
     {
-        $obBudget= EntityBudget::getBudgetById($id);
+        $obBudget = EntityBudget::getBudgetById($id);
 
         //VALIDA A INSTANCIA
         if (!$obBudget instanceof EntityBudget) {
             $request->getRouter()->redirect('/user');
         }
 
-        $nome='';
+        $nome = '';
         $obCli = EntityClient::getClientById($obBudget->id_cli);
         if (!$obBudget->nome_cli) {
             $obCli = EntityClient::getClientById($obBudget->id_cli);
             $nome = $obCli->nome;
-        }else {
-            $nome =$obBudget->nome_cli;
+        } else {
+            $nome = $obBudget->nome_cli;
         }
 
         //CONTEÚDO DO FORMULÁRIO
@@ -440,7 +524,6 @@ class Budget extends Page
 
         //RETORNA A PÁGINA COMPLETA
         return parent::getPainel('Concluir Serviço > Univesp', $content, 'budget');
-  
     }
 
 
@@ -452,18 +535,18 @@ class Budget extends Page
      */
     public static function setConcluirBudget($request, $id)
     {
-        $obBudget= EntityBudget::getBudgetById($id);
+        $obBudget = EntityBudget::getBudgetById($id);
 
         //VALIDA A INSTANCIA
         if (!$obBudget instanceof EntityBudget) {
             $request->getRouter()->redirect('/user');
         }
 
-        $obBudget->ativo =2;
+        $obBudget->ativo = 2;
         $obBudget->data_fim = date('Y-m-d H:i:s');
- 
+
         //EXCLUI O DEPOIMENTO
-        $obBudget->atualizar(); 
+        $obBudget->atualizar();
 
         //REDIRECIONA O USUÁRIO
         $request->getRouter()->redirect('/user?status=complete');
@@ -477,20 +560,20 @@ class Budget extends Page
      */
     public static function getCancelBudget($request, $id)
     {
-        $obBudget= EntityBudget::getBudgetById($id);
+        $obBudget = EntityBudget::getBudgetById($id);
 
         //VALIDA A INSTANCIA
         if (!$obBudget instanceof EntityBudget) {
             $request->getRouter()->redirect('/user');
         }
 
-        $nome='';
+        $nome = '';
         $obCli = EntityClient::getClientById($obBudget->id_cli);
         if (!$obBudget->nome_cli) {
             $obCli = EntityClient::getClientById($obBudget->id_cli);
             $nome = $obCli->nome;
-        }else {
-            $nome =$obBudget->nome_cli;
+        } else {
+            $nome = $obBudget->nome_cli;
         }
 
         //CONTEÚDO DO FORMULÁRIO
@@ -500,7 +583,6 @@ class Budget extends Page
 
         //RETORNA A PÁGINA COMPLETA
         return parent::getPainel('Cancelar Serviço > Univesp', $content, 'budget');
-  
     }
 
     /**
@@ -511,18 +593,18 @@ class Budget extends Page
      */
     public static function setCancelBudget($request, $id)
     {
-        $obBudget= EntityBudget::getBudgetById($id);
+        $obBudget = EntityBudget::getBudgetById($id);
 
         //VALIDA A INSTANCIA
         if (!$obBudget instanceof EntityBudget) {
             $request->getRouter()->redirect('/user');
         }
 
-        $obBudget->ativo =1;
+        $obBudget->ativo = 1;
         $obBudget->data_fim = date('Y-m-d H:i:s');
- 
+
         //EXCLUI O DEPOIMENTO
-        $obBudget->atualizar(); 
+        $obBudget->atualizar();
 
         //REDIRECIONA O USUÁRIO
         $request->getRouter()->redirect('/user?status=cancel');
@@ -557,6 +639,9 @@ class Budget extends Page
                 break;
             case 'cancel':
                 return Alert::getSuccess('Orçamento cancelado');
+                break;
+            case 'ServiceDeleted':
+                return Alert::getSuccess('Serviço Removido');
                 break;
         }
     }

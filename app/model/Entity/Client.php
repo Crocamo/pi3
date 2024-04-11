@@ -114,6 +114,7 @@ class Client{
         return self::getClients('id_cli ='.$id_cli)->fetchObject(self::class);
     }
 
+
     /**
      * Método responsavel por retornar Serviços
      * @param string $where

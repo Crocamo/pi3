@@ -31,7 +31,7 @@ class BudgetService{
 
     /**
      * Preço por area em orçamento
-     * @var interger
+     * @var String
      */
     public $preco;
 

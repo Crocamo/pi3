@@ -44,6 +44,26 @@ $obRouter->post('/user/budget/{id}/edit' , [
 ]);
 
 //ROTA DE CONCLUSÃO DE UM ORÇAMENTO 
+$obRouter->get('/user/budget/{idBludServ}/deleteBlutServ' , [
+    'middlewares' => [
+        'required-user-login'
+    ],
+    function ($request,$idBludServ) {
+        return new Response(200,User\Budget::getdeleteBlutServ($request,$idBludServ));
+    }
+]);
+
+//ROTA DE CONCLUSAO DE UM ORÇAMENTO 
+$obRouter->post('/user/budget/{idBludServ}/deleteBlutServ' , [
+    'middlewares' => [
+        'required-user-login'
+    ],
+    function ($request,$id) {
+        return new Response(200,User\Budget::setdeleteBlutServ($request,$id));
+    }
+]);
+
+//ROTA DE CONCLUSÃO DE UM ORÇAMENTO 
 $obRouter->get('/user/budget/{id}/concluir' , [
     'middlewares' => [
         'required-user-login'

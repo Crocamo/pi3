@@ -68,6 +68,7 @@ class Home extends Page
 
         //RENDERIZA O ITEM
         while ($obBudget = $results->fetchObject(EntityBudget::class)) {
+
             $total = 0;
             $servicos = '';
             $nome = '';
@@ -105,19 +106,48 @@ class Home extends Page
             $results1 = EntityBudgetServ::getservices('id_orcamento = ' . $obBudget->id_orcamento, 'id_orcamento DESC', $obPagination->getLimit());
 
             while ($obBudgetServ = $results1->fetchObject(EntityBudgetServ::class)) {
-                $total += intval($obBudgetServ->preco)*intval($obBudgetServ->qtd_servico); //TODO falta desconto
+                $total += doubleval($obBudgetServ->preco)*doubleval($obBudgetServ->qtd_servico); //TODO falta desconto
                 $servicos .= 'sv=' . $obBudgetServ->servico . '/rs=' . $obBudgetServ->preco . '/obs=' . $obBudgetServ->observacao . '/'; //TODO calcular preco x qtd
             }
             $data='';
             if ($ativo==0) {
-                $data=$obBudget->data_ini;
+                $data = $obBudget->data_ini;
             }else {
-                $data=$obBudget->data_fim;
+                $data = $obBudget->data_fim;
             }
+
+
+            $valor_bonus = $obBudget->valor_bonus;
+            // Extrair os dois primeiros dígitos especiais
+            $digito1 = $valor_bonus[0]; // Primeiro dígito
+            $digito2 = $valor_bonus[1]; // Segundo dígito
+
+            // Extrair o restante da string (após os dois dígitos especiais)
+            $restante = doubleval(substr($valor_bonus, 2)) / 100;
+
+            $totalF = 0;
+           // Realizando operações com base nos dígitos especiais
+            if ($digito2 == '%') {
+                if ($digito1 == '-') {
+                    $totalF = $total -($total*$restante); // subtrai a porcentagem do total
+                } elseif ($digito1 == '+') {
+                    $totalF = $total +($total*$restante); // adiciona a porcentagem ao total
+                }
+            } else {
+                if ($digito1 == '-') {
+                    $totalF = $total-$restante; // subtrai o valor do total
+                } elseif ($digito1 == '+') {
+                    $totalF = $total+$restante; // adiciona o valor ao total
+                }
+            }
+
             $telefone_formatado = self::formatar($obBudget->telefone,'tel');
             $cep_formatado = self::formatar($cep,'cep');
+
             $itens .= View::render('user/modules/home/itens', [
                 'total'     => $total,
+                'totalF'    => $totalF,
+                'final'     => $totalF,
                 'nomeCli'   => $nome,
                 'data_ini'  => date('d/m/Y', strtotime($data)),
                 'id_orcamento'=> $obBudget->id_orcamento,

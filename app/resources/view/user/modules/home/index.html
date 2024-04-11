@@ -68,10 +68,9 @@
                 <p><strong>Cidade:</strong> <span id="modalCidade"></span></p>
                 <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
                 <p><strong>Status:</strong> <span id="modalStatus"></span></p>
-                <p><strong>Data inicial:</strong> <span
-                        id="modalData"></span></p>
-                <p><strong>Valor Total:</strong> <span
-                        id="modalValor"></span></p>
+                <p><strong>Data inicial:</strong> <span id="modalData"></span></p>
+                <p><strong>Valor Total:</strong> <span id="modalValor"></span></p>
+                <p><strong>Valor Final:</strong> <span id="modalFinal"></span></p>
                 <div class="modal-service"></div>
             </div>
             <div class="modal-footer">
@@ -96,6 +95,8 @@
         var status = $(this).data('status');
         var data_ini = $(this).data('data_ini');
         var total = $(this).data('total');
+        var desconto = $(this).data('desconto');
+        var Final = $(this).data('final');
 
         $('#modalNomeCli').text(NomeCli);
         $('#modalTelefone').text(telefone);
@@ -106,6 +107,8 @@
         $('#modalStatus').text(status);
         $('#modalData').text(data_ini);
         $('#modalValor').text(total);
+        $('#modalDesconto').text(desconto);
+        $('#modalFinal').text(Final);
 
         // Limpar o conteúdo anterior do modal
         $('.modal-service').empty();
