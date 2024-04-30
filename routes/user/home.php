@@ -12,3 +12,24 @@ $obRouter->get('/user' , [
         return new Response(200,User\Home::getHome($request));
     }
 ]);
+
+
+//ROTA DE EDIÇÃO DE UM ORÇAMENTO 
+$obRouter->get('/user/{id}/imprimir' , [
+    'middlewares' => [
+        'required-user-login'
+    ],
+    function ($request,$id) {
+        return new Response(200,User\Home::getPrintBudget($request,$id));
+    }
+]);
+
+//ROTA DE EDIÇÃO DE UM ORÇAMENTO 
+$obRouter->post('/user/{id}/imprimir' , [
+    'middlewares' => [
+        'required-user-login'
+    ],
+    function ($request,$id) {
+        return new Response(200,User\Home::setPrintBudget($request,$id));
+    }
+]);

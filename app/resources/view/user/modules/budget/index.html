@@ -70,7 +70,7 @@
         const totalFInput = document.getElementById('totalF');
         const selectCliente = document.getElementById('selectCliente');
         const excluirButtons = document.querySelectorAll(".excluir");
-        const btnAdicionar = document.querySelector(".btn-primary");
+        var btnAdicionar = document.querySelector("#btnAdicionar");
         let inputsQtd = '';
 
         // Define um exemplo de valor e placeholder para o campo desconto-acrescimo
@@ -204,7 +204,10 @@
 
         // Adiciona um manipulador de evento para adicionar novos serviços
         btnAdicionar.addEventListener("click", function () {
+            console.log('btnAdicionar');
             var selectServico = document.querySelector("#selectServico");
+            console.log(selectServico);
+
             var selectedOption = selectServico.options[selectServico.selectedIndex];
             var selectedValue = selectedOption.value;
 
