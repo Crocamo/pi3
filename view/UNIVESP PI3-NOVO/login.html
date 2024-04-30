@@ -3,32 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{title}}</title>
+        <title>Entrar</title>
         <link rel="stylesheet" href="css/pages.css">
         <link rel="stylesheet" href="css/login.css">
 
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     </head>
-    <body>
+    <body background="brick-wall.jpg">
         <div class="login-box">
-            <h1>Login</h1>
-            <div>
-                {{status}}
-            </div>        
+            <h1>Login</h1>    
         
             <form method="post">
         
-                <div class="inputBox">
-                    <input type="text" class="inputUser" name="login" placeholder="login" id="login" required autofocus>
-                    <label for="usuario" class="inputLabel">Usuário</label>
+                <div>
+                    <input type="text" class="inputUser" name="login" placeholder="Usuário" id="login" required autofocus>
                 </div>
-                <br><br>
-                <div class="inputBox">
-                    <input type="password" class="inputUser" name="senha" id="senha" placeholder="**********" required>
-                    <label for="senha" class="inputLabel">Senha</label>
+                <div>
+                    <input type="password" class="inputUser" name="senha" id="senha" placeholder="Senha" required>
                 </div>
-                <div class="login-button">
+                <div>
+                    <input type="checkbox" id="lembrar">
+                    <label for="lembrar">Lembrar de mim</label>
+                </div>
+                <div>
                     <button type="submit" name="submit" id="submit" >Entrar</button>
                 </div>
         

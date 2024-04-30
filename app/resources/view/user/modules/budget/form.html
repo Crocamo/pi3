@@ -1,104 +1,230 @@
+<div class="container base mt-1">
+    <h2>{{title}}</h2>
+    {{status}}
 
-<div class="d-flex justify-content-center">
-
-    <div class="card mt-3 text-dark text-center" style="width: 100%;">
-
-        <div class="card-header">
-            <h1>{{title}}</h1>
-        </div>
-
-        <div class="card-body">
-
-            {{status}}
-
-            <form method="post">
-                <div class="row">
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Nome</label>
-                        <input type="text" name="nome" class="form-control"
-                            value="{{nome_cli}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Status</label>
-                        <input type="text" name="ativo" class="form-control"
-                            value="{{ativo}}" readonly>
-                    </div>
-                    
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Desconto/acrescimo</label>
-                        <input type="text" name="valor_bonus"
-                            class="form-control"
-                            value="{{valor_bonus}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label for="desconto">Desconto:</label>
-                        <input type="checkbox" class="form-control" id="desconto" name="desconto" {{checked}}>
-                    </div>
-
-                    <div class="form-group col">
-                        <label for="porcentagem">porcentagem:</label>
-                        <input type="checkbox" class="form-control" id="porcentagem" name="porcentagem" {{checkedPercent}}>
-                    </div>
+    <form method="post">
+        <div class="cliente-infos">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" class="form-control" value="{{nome_cli}}" required>
                 </div>
-                <div class="row">    
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Telefone</label>
-                        <input type="text" name="telefone" class="form-control"
-                            value="{{telefone}}" required>
-                    </div>
-               
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Endereço</label>
-                        <input type="text" name="endereco" class="form-control"
-                            value="{{endereco}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">CEP</label>
-                        <input type="text" name="cep" class="form-control"
-                            value="{{cep}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Cidade</label>
-                        <input type="text" name="cidade" class="form-control"
-                            value="{{cidade}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label
-                            style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Estado</label>
-                        <input type="text" name="estado" class="form-control"
-                            value="{{estado}}" required>
-                    </div>
+                <div class="col-md-2">
+                    <label for="ativo">Status</label>
+                    <input type="text" name="ativo" class="form-control" value="{{ativo}}" readonly>
                 </div>
-                <div class="row">
-                    {{servicos}}
+                <div class="col-md-3">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone" class="form-control" value="{{telefone}}" required>
                 </div>
-                <div class="form-group col">
-                    <button type="submit"
-                        class="btn btn-primary">Atualizar dados</button>
+            </div>
 
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco" class="form-control" value="{{endereco}}" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="cep">CEP</label>
+                    <input type="text" name="cep" class="form-control" value="{{cep}}" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" class="form-control" value="{{cidade}}" required>
+                </div>
+                <div class="col-md-1">
+                    <label for="estado">Estado</label>
+                    <input type="text" name="estado" class="form-control" value="{{estado}}" required>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <label for="selectCliente">Adicionar Serviço:</label>
+                    <select id="seloptionSectCliente" class="form-control mt-2" name="selectCliente">
+                        {{optionS}}
+                    </select>
+                </div>
+                <div class="col-md-2 mt-4">
+                    <a id="linkConcluir" href="{{URL}}/user/budget/{{idservice}}/{{id_budget}}/add">
+                        <button type="button" class="btn btn-primary mt-2">Adicionar</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                {{servicos}}
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-2 mt-2">
+                    <label for="valor_bonus">Valor</label>
+                    <input type="text" name="valor_bonus" class="form-control" value="{{valor_bonus}}" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="desconto">Desconto:</label>
+                    <input type="checkbox" class="form-control" id="desconto" name="desconto" {{checked}}>
+                </div>
+                <div class="col-md-2">
+                    <label for="porcentagem">Porcentagem:</label>
+                    <input type="checkbox" class="form-control" id="porcentagem" name="porcentagem" {{checkedPercent}}>
+                </div>
+                <div class="col-md-2">
+                    <label for="total">Serviços:</label>
+                    <input type="text" name="total" class="form-control" value="{{total}}" readonly>
+                </div>
+                <div class="col-md-2">
+                    <label for="totalFinal">Total:</label>
+                    <input type="text" name="totalFinal" class="form-control" value="{{totalFinal}}" readonly>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success mr-2">Atualizar dados</button>
                     <a href="{{URL}}/user/budget/{{id_budget}}/concluir">
-                        <button type="button" class="btn btn-primary">Marcar
-                            como concluido</button>
+                        <button type="button" class="btn btn-primary mr-2">Marcar como concluído</button>
                     </a>
                     <a href="{{URL}}/user/budget/{{id_budget}}/cancel">
-                        <button type="button" class="btn btn-danger">Marcar como
-                            cancelado</button>
+                        <button type="button" class="btn btn-danger">Marcar como cancelado</button>
                     </a>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
+</div>
 
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectCliente = document.getElementById('seloptionSectCliente'); // Corrigido para 'seloptionSectCliente'
+        // Encontrar todos os elementos de input cujo nome começa com "preco"
+        var inputsPreco = document.querySelectorAll('input[name^="preco"]');
+        // Encontrar todos os elementos de input cujo nome começa com "qtd_serv"
+        var inputsQtd = document.querySelectorAll('input[name^="qtd_serv"]');
+
+        if (selectCliente) {
+            selectCliente.addEventListener('change', function () {
+                var id_service = this.options[this.selectedIndex].getAttribute('value');
+                var linkAdd = document.getElementById('linkConcluir'); // Corrigido para 'linkConcluir'
+                if (linkAdd) {
+                    var url = linkAdd.getAttribute('href');
+                    var newUrl = url.replace('{{idservice}}', id_service);
+
+                    linkAdd.setAttribute('href', newUrl);
+                } else {
+                    console.error("Elemento 'linkConcluir' não encontrado."); // Corrigido para 'linkConcluir'
+                }
+            });
+        } else {
+            console.error("Elemento 'seloptionSectCliente' não encontrado."); // Corrigido para 'seloptionSectCliente'
+        }
+
+        function calcularTotal() {
+            var total = 0;
+
+            // Iterar sobre todos os inputs de preço
+            inputsPreco.forEach(function (inputPreco, index) {
+                // Obter o valor do input de preço
+                var preco = parseFloat(inputPreco.value);
+
+                // Obter o valor do input de quantidade correspondente ao preço
+                var qtd = parseFloat(inputsQtd[index].value);
+
+                // Verificar se os valores de preço e quantidade são válidos e adicionar ao total
+                if (!isNaN(preco) && !isNaN(qtd)) {
+                    total += preco * qtd;
+                }
+            });
+
+            // Atualizar o valor do campo de entrada "total" com o resultado da soma
+            document.querySelector('input[name="total"]').value = total.toFixed(2);
+        }
+
+        // Chamar a função calcularTotal quando houver uma mudança em qualquer um dos inputs de preço ou quantidade
+        inputsPreco.forEach(function (input) {
+            input.addEventListener('change', calcularTotal);
+        });
+        inputsQtd.forEach(function (input) {
+            input.addEventListener('change', calcularTotal);
+        });
+
+        // Chamar a função calcularTotal ao carregar a página para calcular o total inicial
+        calcularTotal();
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Selecionar os elementos do DOM
+        var valorBonusInput = document.querySelector('input[name="valor_bonus"]');
+        var descontoCheckbox = document.getElementById('desconto');
+        var porcentagemCheckbox = document.getElementById('porcentagem');
+        var totalInput = document.querySelector('input[name="total"]');
+        var totalFinalInput = document.querySelector('input[name="totalFinal"]');
+
+        // Função para formatar o número com duas casas decimais
+        function number_format(number, decimals, dec_point, thousands_sep) {
+            number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+            var n = !isFinite(+number) ? 0 : +number,
+                prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+                sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+                dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+                s = '',
+                toFixedFix = function (n, prec) {
+                    var k = Math.pow(10, prec);
+                    return '' + Math.round(n * k) / k;
+                };
+            // Fix para IE parseFloat(0.55).toFixed(0) = 0;
+            s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+            if (s[0].length > 3) {
+                s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+            }
+            if ((s[1] || '').length < prec) {
+                s[1] = s[1] || '';
+                s[1] += new Array(prec - s[1].length + 1).join('0');
+            }
+            return s.join(dec);
+        }
+
+        // Função para calcular o valor final
+        function calcularTotalFinal() {
+            // Obter o valor do campo de entrada valor_bonus
+            var valorBonus = parseFloat(valorBonusInput.value);
+            // Obter o valor do campo de entrada total
+            var total = parseFloat(totalInput.value);
+
+            // Verificar se o valor_bonus é um número válido
+            if (!isNaN(valorBonus)) {
+                // Verificar se a opção de desconto está marcada
+                if (descontoCheckbox.checked) {
+                    // Verificar se a opção de porcentagem está marcada
+                    if (porcentagemCheckbox.checked) {
+                        // Calcular o total final com desconto porcentual
+                        var totalFinal = total - (total * (valorBonus / 100));
+                    } else {
+                        // Calcular o total final com desconto fixo
+                        var totalFinal = total - valorBonus;
+                    }
+                } else {
+                    // Verificar se a opção de porcentagem está marcada
+                    if (porcentagemCheckbox.checked) {
+                        // Calcular o total final com acréscimo porcentual
+                        var totalFinal = total + (total * (valorBonus / 100));
+                    } else {
+                        // Calcular o total final sem desconto ou acréscimo
+                        var totalFinal = total + valorBonus;
+                    }
+                }
+
+                // Atualizar o valor do campo de entrada totalFinal com o valor final calculado
+                totalFinalInput.value = number_format(totalFinal, 2, '.', ',');
+            }
+        }
+
+        // Chamar a função calcularTotalFinal quando houver uma mudança em qualquer um dos campos relevantes
+        valorBonusInput.addEventListener('input', calcularTotalFinal);
+        descontoCheckbox.addEventListener('change', calcularTotalFinal);
+        porcentagemCheckbox.addEventListener('change', calcularTotalFinal);
+
+        // Chamar a função calcularTotalFinal ao carregar a página para calcular o valor final inicial
+        calcularTotalFinal();
+    });
+</script>

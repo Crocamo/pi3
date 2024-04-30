@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{title}}</title>
+        <title>Clientes</title>
         <link rel="stylesheet" href="css/pages.css">
-        <link rel="stylesheet" href="css/service.css">
+        <link rel="stylesheet" href="css/client.css">
 
         <link rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
-    <body>
+    <body background="concrete.jpg">
         <div class="container">
 
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,7 +26,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item " style="width:max-content">
                             <a
-                                class="nav-link nav-justified nav-divider active text-danger"
+                                class="nav-link nav-justified nav-divider active "
                                 href="http://localhost/pi3/user">Página
                                 Inicial</a>
                         </li><li class="nav-item " style="width:max-content">
@@ -35,7 +35,7 @@
                                 href="http://localhost/pi3/user/service">Serviços</a>
                         </li><li class="nav-item " style="width:max-content">
                             <a
-                                class="nav-link nav-justified nav-divider active "
+                                class="nav-link nav-justified nav-divider active text-danger "
                                 href="http://localhost/pi3/user/client">Clientes</a>
                         </li><li class="nav-item " style="width:max-content">
                             <a
@@ -46,7 +46,7 @@
 
                     <div class="ml-auto">
                         <a href="http://localhost/pi3/logout">
-                            <button type="button" class="btn">SAIR</button>
+                            <button type="button" class="sair">SAIR</button>
                         </a>
                     </div>
                 </div>
@@ -54,51 +54,61 @@
         </div>
         
         <div class="container base mt-1">
-            <h2>Serviços</h2>
-            <button type="button" class="btn-new-service mb-3"
-                data-toggle="modal" data-target="#novoServicoModal">Novo
-                Serviço</button>
-            <!-- Primeiro Serviço -->
-            <div class="servico-info">
-                <p><strong>Serviço:</strong> Serviço 1</p>
-                <p><strong>Tipo:</strong> Tipo 1</p>
-                <p><strong>Quantidade:</strong> 2</p>
-                <p><strong>Preço:</strong> R$ 100,00</p>
-                <button type="button" class="btn-editar" data-toggle="modal"
-                    data-target="#atualizarServicoModal">Atualizar</button>
-                <button type="button" class="btn-excluir" data-toggle="modal"
-                    data-target="#excluirServicoModal">Excluir</button>
+            <h2>Clientes</h2>
+            <div class="botao">
+                <button type="button" class="btn btn-info novo-cliente " data-toggle="modal"
+                    data-target="#novoClienteModal">Novo Cliente</button>
+                <button type="button" class="btn btn-info pesquisar">Pesquisar</button>
             </div>
-            <!-- Segundo Serviço -->
-            <div class="servico-info">
-                <p><strong>Serviço:</strong> Serviço 2</p>
-                <p><strong>Tipo:</strong> Tipo 2</p>
-                <p><strong>Quantidade:</strong> 1</p>
-                <p><strong>Preço:</strong> R$ 50,00</p>
-                <button type="button" class="btn-editar" data-toggle="modal"
-                    data-target="#atualizarServicoModal">Atualizar</button>
-                <button type="button" class="btn-excluir" data-toggle="modal"
-                    data-target="#excluirServicoModal">Excluir</button>
+
+            <div class="clientes-display grid-container">
+                <!-- Primeiro Cliente -->
+                <div class="cliente-info grid-item">
+                  <p><strong>Nome:</strong> Fulano de Tal</p>
+                   <p><strong>Email:</strong> emaildofulano1@email.com</p>
+                  <p><strong>Telefone:</strong> 55 11 2525-2525</p>
+                   <p><strong>Endereço:</strong> Rua Beltrano de Sá</p>
+                   <button type="button" class="btn excluir" data-toggle="modal"
+                        data-target="#excluirClienteModal">Excluir</button>
+                   <button type="button" class="btn detalhes" data-toggle="modal"
+                        data-target="#detalhesClienteModal">Detalhes</button>
+                   <button type="button" class="btn atualizar" data-toggle="modal"
+                        data-target="#atualizarClienteModal">Atualizar</button>
+                </div>
+                <!-- Segundo Cliente -->
+                <div class="cliente-info grid-item">
+                    <p><strong>Nome:</strong> Fulano de Tal 2</p>
+                    <p><strong>Email:</strong> emaildofulano2@email.com</p>
+                    <p><strong>Telefone:</strong> 55 11 2525-2525</p>
+                    <p><strong>Endereço:</strong> Rua Beltrano de Sá</p>
+                    <button type="button" class="btn excluir" data-toggle="modal"
+                        data-target="#excluirClienteModal">Excluir</button>
+                    <button type="button" class="btn detalhes" data-toggle="modal"
+                        data-target="#detalhesClienteModal">Detalhes</button>
+                    <button type="button" class="btn atualizar"
+                        data-toggle="modal"
+                        data-target="#atualizarClienteModal">Atualizar</button>
+                </div>
             </div>
         </div>
 
-        <!-- Modal para Novo Serviço -->
-        <div class="modal fade" id="novoServicoModal" tabindex="-1"
+        <!-- Modal para Novo Cliente -->
+        <div class="modal fade" id="novoClienteModal" tabindex="-1"
             role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Novo
-                            Serviço</h5>
+                            Cliente</h5>
                         <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- Formulário para adicionar novo serviço -->
-                        <!-- Coloque aqui os campos para adicionar um novo serviço -->
+                        <!-- Formulário para adicionar novo cliente -->
+                        <!-- Coloque aqui os campos para adicionar um novo cliente -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
@@ -110,23 +120,49 @@
             </div>
         </div>
 
-        <!-- Modal para Atualizar Serviço -->
-        <div class="modal fade" id="atualizarServicoModal" tabindex="-1"
+        <!-- Modal para Detalhes do Cliente -->
+        <div class="modal fade" id="detalhesClienteModal" tabindex="-1"
             role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Atualizar
-                            Serviço</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Detalhes
+                            do Cliente</h5>
                         <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- Formulário para atualizar serviço -->
-                        <!-- Coloque aqui os campos para atualizar um serviço -->
+                        <!-- Conteúdo dos detalhes do cliente -->
+                        <!-- Coloque aqui os detalhes do cliente -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Atualizar Cliente -->
+        <div class="modal fade" id="atualizarClienteModal" tabindex="-1"
+            role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Atualizar
+                            Cliente</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulário para atualizar cliente -->
+                        <!-- Coloque aqui os campos para atualizar um cliente -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
@@ -138,22 +174,22 @@
             </div>
         </div>
 
-        <!-- Modal para Excluir Serviço -->
-        <div class="modal fade" id="excluirServicoModal" tabindex="-1"
+        <!-- Modal para Excluir Cliente -->
+        <div class="modal fade" id="excluirClienteModal" tabindex="-1"
             role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Excluir
-                            Serviço</h5>
+                            Cliente</h5>
                         <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Tem certeza de que deseja excluir este serviço?</p>
+                        <p>Tem certeza de que deseja excluir este cliente?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"

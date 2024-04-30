@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{title}}</title>
+        <title>Início</title>
         <link rel="stylesheet" href="css/pages.css">
         <link rel="stylesheet" href="css/home.css">
 
         <link rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
-    <body>
+    <body background="concrete.jpg">
         <div class="container">
 
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -46,7 +46,7 @@
 
                     <div class="ml-auto">
                         <a href="http://localhost/pi3/logout">
-                            <button type="button" class="btn">SAIR</button>
+                            <button type="button" class="sair">SAIR</button>
                         </a>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         <tr>
                             <th>Nome Cliente</th>
                             <th>Valor</th>
-                            <th>Data do Orçamento</th>
+                            <th>Data de Início</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -75,7 +75,7 @@
                             <td>R$ 500,00</td>
                             <td>2024-03-05</td>
                             <td>
-                                <button type="button" class="btn btn-info"
+                                <button type="button" class="btn detalhes"
                                     data-toggle="modal"
                                     data-target="#detalhesOrcamentoAbertoModal">Detalhes</button>
                             </td>
@@ -85,7 +85,7 @@
                             <td>R$ 800,00</td>
                             <td>2024-03-06</td>
                             <td>
-                                <button type="button" class="btn btn-info"
+                                <button type="button" class="btn detalhes"
                                     data-toggle="modal"
                                     data-target="#detalhesOrcamentoAbertoModal">Detalhes</button>
                             </td>
@@ -95,7 +95,7 @@
                             <td>R$ 1200,00</td>
                             <td>2024-03-07</td>
                             <td>
-                                <button type="button" class="btn btn-info"
+                                <button type="button" class="btn detalhes"
                                     data-toggle="modal"
                                     data-target="#detalhesOrcamentoAbertoModal">Detalhes</button>
                             </td>
@@ -112,7 +112,7 @@
                         <tr>
                             <th>Nome Cliente</th>
                             <th>Valor</th>
-                            <th>Data de Conclusão</th>
+                            <th>Data de Término</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -123,7 +123,7 @@
                             <td>R$ 500,00</td>
                             <td>2024-02-25</td>
                             <td>
-                                <button type="button" class="btn btn-info"
+                                <button type="button" class="btn detalhes"
                                     data-toggle="modal"
                                     data-target="#detalhesOrcamentoConcluidoModal">Detalhes</button>
                             </td>
@@ -133,7 +133,7 @@
                             <td>R$ 800,00</td>
                             <td>2024-02-26</td>
                             <td>
-                                <button type="button" class="btn btn-info"
+                                <button type="button" class="btn detalhes"
                                     data-toggle="modal"
                                     data-target="#detalhesOrcamentoConcluidoModal">Detalhes</button>
                             </td>
@@ -143,7 +143,7 @@
                             <td>R$ 1200,00</td>
                             <td>2024-02-27</td>
                             <td>
-                                <button type="button" class="btn btn-info"
+                                <button type="button" class="btn detalhes"
                                     data-toggle="modal"
                                     data-target="#detalhesOrcamentoConcluidoModal">Detalhes</button>
                             </td>

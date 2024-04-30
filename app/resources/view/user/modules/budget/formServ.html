@@ -1,31 +1,31 @@
 
-<div class="row" style="padding: 5px;">
-    <div class="form-group col">
-        <input type="hidden" name="id{{count}}" value="{{idBludServ}}">
-    </div>
-    <div class="form-group col">
-        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Serviço</label>
+<div class="row mt-2">
+    <div class="col-md-2">
+        <label for="servico{{count}}">Serviço</label>
         <input type="text" name="servico{{count}}" class="form-control" value="{{servico}}" readonly>
     </div>
-    <div class="form-group col">
-        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Quantidade</label>
+    <div class="col-md-1">
+        <label for="qtd_serv{{count}}">Quantidade</label>
         <input type="text" name="qtd_serv{{count}}" class="form-control" value="{{qtd_serv}}" required>
     </div>
-    <div class="form-group col">
-        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Tipo</label>
+    <div class="col-md-2">
+        <label for="tipo{{count}}">Tipo</label>
         <input type="text" name="tipo{{count}}" class="form-control" value="{{tipo}}" readonly>
     </div>
-    <div class="form-group col">
-        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Preço</label>
+    <div class="col-md-1">
+        <label for="preco{{count}}">Preço</label>
         <input type="text" name="preco{{count}}" class="form-control" value="{{preco}}" readonly>
     </div>
-    <div class="form-group col">
-        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Observação</label>
+    <div class="col-md-3">
+        <label for="observacao{{count}}">Observação</label>
         <input type="text" name="observacao{{count}}" class="form-control" value="{{observacao}}">
     </div>
-    <div class="form-group col">
+    <div class="col-md-1 mt-3">
         <a href="{{URL}}/user/budget/{{idBludServ}}/deleteBlutServ"> 
             <button type="button" class="btn btn-danger">Remover</button> 
         </a>
+    </div>
+    <div class="co">
+        <input type="hidden" name="id{{count}}" value="{{idBludServ}}">
     </div>
 </div>

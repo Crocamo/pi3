@@ -1,67 +1,59 @@
+<div class="container base mt-1">
+    <h1>{{title}}</h1>
+    {{status}}
 
-<div class="d-flex justify-content-center">
+    <div method="post">
+        <div class="cliente-info grid-item">
+        <div class="row">
+            <div class="form-group col">
+                <label>Nome</label>
+                <input type="text" name="nome" class="form-control" value="{{nome}}" required>
+            </div>
 
-    <div class="card mt-3 text-dark text-center" style="width: 100%;">
+            <div class="form-group col">
+                <label for="cpf">CPF/CNPJ</label>
+                <input type="text" name="cpf" class="form-control" value="{{cpf}}" oninput="formatarCPFCNPJ(this)"
+                    required>
+            </div>
 
-        <div class="card-header">
-            <h1>{{title}}</h1>
+            <div class="form-group col">
+                <label for="tel">Telefone/Celular</label>
+                <input type="text" name="tel" class="form-control" value="{{tel}}" oninput="formatarTelCel(this)"
+                    required>
+            </div>
+
+            <div class="form-group col">
+                <label>E-mail</label>
+                <input type="email" name="email" class="form-control" value="{{email}}" required>
+            </div>
+
+            <div class="form-group col">
+                <label>Endereço</label>
+                <input type="text" name="endereco" class="form-control" value="{{endereco}}" required>
+            </div>
         </div>
+        <div class="row">
 
-        <div class="card-body">
+            <div class="form-group col">
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" class="form-control" value="{{cep}}" oninput="formatarCEP(this)" required>
+            </div>
 
-            {{status}}
+            <div class="form-group col">
+                <label>Cidade</label>
+                <input type="text" name="cidade" class="form-control" value="{{cidade}}" required>
+            </div>
 
-            <form method="post">
-                <div class="row">
+            <div class="form-group col">
+                <label>Estado</label>
+                <input type="text" name="estado" class="form-control" value="{{estado}}" required>
+            </div>
 
-                    <div class="form-group col">
-                        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Nome</label>
-                        <input type="text" name="nome" class="form-control" value="{{nome}}" required>
-                    </div>
-                    
-                    <div class="form-group col">
-                        <label for="cpf" style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">CPF/CNPJ</label>
-                        <input type="text" name="cpf" class="form-control" value="{{cpf}}" oninput="formatarCPFCNPJ(this)" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label for="tel" style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Telefone/Celular</label>
-                        <input type="text" name="tel" class="form-control" value="{{tel}}" oninput="formatarTelCel(this)" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">E-mail</label>
-                        <input type="email" name="email" class="form-control" value="{{email}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Endereço</label>
-                        <input type="text" name="endereco" class="form-control" value="{{endereco}}" required>
-                    </div>
-                    
-                    <div class="form-group col">
-                        <label for="cep" style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">CEP</label>
-                        <input type="text" name="cep" class="form-control" value="{{cep}}" oninput="formatarCEP(this)" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Cidade</label>
-                        <input type="text" name="cidade" class="form-control" value="{{cidade}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <label style="width: 210px; background-color: rgb(19, 15, 252); color: white; font-weight: bolder;">Estado</label>
-                        <input type="text" name="estado" class="form-control" value="{{estado}}" required>
-                    </div>
-
-                    <div class="form-group col">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
+            <div class="form-group col">
+                <button type="submit" class="btn btn-primary mt-4">Enviar</button>
+            </div>
+        </div></div>
+    </form>
 </div>
 <!--Inclua jQuery e inputmask 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->

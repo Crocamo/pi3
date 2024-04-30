@@ -22,27 +22,21 @@ h2 {
     margin-bottom: 10px !important;
 }
 
-.pesquisar {
+.btn {
+    border: none !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-size: auto;
+    width: 25hw;
+    margin-top: 5px !important;
+    padding: 5px !important;
+    padding-inline: 10px !important;
+}
+
+.novo-servico {
     margin: 10px 5px 10px 5px !important;
     width: auto !important;
     font-size: 17px !important;
-}
-
-.pesquisar:hover {
-    background-color: #0f7987 !important;
-    cursor: pointer;
-}
-
-.novo-cliente {
-    margin: 10px 5px 10px 0px !important;
-    margin-right: 15px;
-    width: auto !important;
-    font-size: 17px !important;
-}
-
-.novo-cliente:hover {
-    background-color: #0f7987 !important;
-    cursor: pointer;
 }
 
 .grid-container {
@@ -55,7 +49,8 @@ h2 {
     width: auto;
 }
 
-.cliente-info {
+/* Estilo para as informações de serviço */
+.servico-info {
     margin-bottom: 10px;
     background-color: hsla(0, 0%, 37%, 0.903);
     color: white;
@@ -65,19 +60,8 @@ h2 {
     text-align: center;
 }
 
-.cliente-info p {
+.servico-info p {
     text-align: left;
-}
-
-.btn {
-    border: none !important;
-    border-radius: 8px !important;
-    color: white !important;
-    font-size: auto;
-    width: 25hw;
-    margin-top: 5px !important;
-    padding: 5px !important;
-    padding-inline: 10px !important;
 }
 
 .excluir {
@@ -87,16 +71,6 @@ h2 {
 
 .excluir:hover {
     background-color: #8c3f2f !important;
-    cursor: pointer;
-}
-
-.detalhes {
-    background-color: #0f7987 !important;
-    margin-right: 10px;
-}
-
-.detalhes:hover {
-    background-color: rgb(0, 160, 187) !important;
     cursor: pointer;
 }
 
@@ -149,7 +123,7 @@ h2 {
         text-align: center !important;
     }
 
-    .cliente-info {
+    .servico-info {
         width: auto !important;
         border-radius: 8px;
         font-size: 13px;
@@ -158,7 +132,7 @@ h2 {
         letter-spacing: 2px !important;
     }
 
-    .cliente-info p {
+    .servico-info p {
         margin-top: 10px !important;
     }
 
@@ -191,7 +165,11 @@ h2 {
         margin: 10px !important;
     }
 
-    .cliente-info {
+    .botao {
+        text-align: center !important;
+    }
+
+    .servico-info {
         margin: 12px !important;
         width: 100hw !important;
         border-radius: 8px;
@@ -200,12 +178,8 @@ h2 {
         letter-spacing: 2px !important;
     }
 
-    .cliente-info p {
+    .servico-info p {
         margin: 10px !important;
-    }
-
-    .botao {
-        text-align: center !important;
     }
 
 }

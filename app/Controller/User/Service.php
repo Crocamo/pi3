@@ -28,7 +28,7 @@ class Service extends Page
         $paginaAtual = $queryParams['page'] ?? 1;
 
         //INSTANCIA DE PAGINAÇÃO
-        $obPagination = new Pagination($quantidadetotal, $paginaAtual, 3);
+        $obPagination = new Pagination($quantidadetotal, $paginaAtual, 6);
 
         //RESULTADOS DA PÁGINA
         $results = entityService::getServices(null, 'id_servico DESC', $obPagination->getLimit());

@@ -1,48 +1,46 @@
-<section id="modulo">
-    <div class="container mt-1">
-        <h2>Sistema de Orçamento</h2>
 
-        <div class="tbl_budget_opened">
-            <!-- Lista de orçamentos em aberto -->
-            <h4>Orçamentos em aberto</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nome Cliente</th>
-                        <th>Valor</th>
-                        <th>Data do Orçamento</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{budgetOpen}}
-                    {{budgetOpenPagination}}
-                    <!-- Fim das entradas fictícias para orçamentos em aberto -->
-                </tbody>
-            </table>
-        </div>
-        <div class="tbl_budget_closed">
-            <!-- Lista de orçamentos concluídos -->
-            <h4>Orçamentos concluídos</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nome Cliente</th>
-                        <th>Valor</th>
-                        <th>Data de Conclusão</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Entradas fictícias para orçamentos concluídos -->
-                    {{budgetClose}}
-                    {{budgetClosePagination}}
-                    <!-- Fim das entradas fictícias para orçamentos concluídos -->
-                </tbody>
-            </table>
-        </div>
+<div class="container base mt-1">
+    <h2>Sistema de Orçamento</h2>
+
+    <div class="tbl_budget_opened">
+        <!-- Lista de orçamentos em aberto -->
+        <h4>Orçamentos em aberto</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome Cliente</th>
+                    <th>Valor</th>
+                    <th>Data de Início</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{budgetOpen}}
+                {{budgetOpenPagination}}
+
+            </tbody>
+        </table>
     </div>
-</section>
+    <div class="tbl_budget_closed">
+        <!-- Lista de orçamentos concluídos -->
+        <h4>Orçamentos concluídos</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome Cliente</th>
+                    <th>Valor</th>
+                    <th>Data de Conclusão</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{budgetClose}}
+                {{budgetClosePagination}}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <!-- Modais para exibir detalhes de orçamentos -->
 <div class="modal fade" id="detalhesOrcamentoModal" tabindex="-1"
@@ -68,9 +66,12 @@
                 <p><strong>Cidade:</strong> <span id="modalCidade"></span></p>
                 <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
                 <p><strong>Status:</strong> <span id="modalStatus"></span></p>
-                <p><strong>Data inicial:</strong> <span id="modalData"></span></p>
-                <p><strong>Valor Total:</strong> <span id="modalValor"></span></p>
-                <p><strong>Valor Final:</strong> <span id="modalFinal"></span></p>
+                <p><strong>Data inicial:</strong> <span
+                        id="modalData"></span></p>
+                <p><strong>Valor Total:</strong> <span
+                        id="modalValor"></span></p>
+                <p><strong>Valor Final:</strong> <span
+                        id="modalFinal"></span></p>
                 <div class="modal-service"></div>
             </div>
             <div class="modal-footer">

@@ -3,14 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{title}}</title>
+        <title>Orçamento</title>
         <link rel="stylesheet" href="css/pages.css">
         <link rel="stylesheet" href="css/budget.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script defer src="js/bootstrap.bundle.min.js"></script>
 
-        <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     </head>
-    <body>
+    <body background="concrete.jpg">
         <div class="container">
 
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,27 +28,27 @@
                     <ul class="navbar-nav">
                         <li class="nav-item " style="width:max-content">
                             <a
-                                class="nav-link nav-justified nav-divider active text-danger"
+                                class="nav-link nav-justified nav-divider active"
                                 href="http://localhost/pi3/user">Página
                                 Inicial</a>
                         </li><li class="nav-item " style="width:max-content">
                             <a
-                                class="nav-link nav-justified nav-divider active "
+                                class="nav-link nav-justified nav-divider active"
                                 href="http://localhost/pi3/user/service">Serviços</a>
                         </li><li class="nav-item " style="width:max-content">
                             <a
-                                class="nav-link nav-justified nav-divider active "
+                                class="nav-link nav-justified nav-divider active"
                                 href="http://localhost/pi3/user/client">Clientes</a>
                         </li><li class="nav-item " style="width:max-content">
                             <a
-                                class="nav-link nav-justified nav-divider active "
+                                class="nav-link nav-justified nav-divider active text-danger"
                                 href="http://localhost/pi3/user/budget">Orçamentos</a>
                         </li>
                     </ul>
 
                     <div class="ml-auto">
                         <a href="http://localhost/pi3/logout">
-                            <button type="button" class="btn">SAIR</button>
+                            <button type="button" class=" sair">SAIR</button>
                         </a>
                     </div>
                 </div>
@@ -82,66 +84,63 @@
                     <option value="servico3">Serviço 3</option>
                     <!-- Adicione mais opções de serviços aqui -->
                 </select>
-                <button type="button" class="btn btn-primary">Adicionar</button>
+                <div class="botao">
+                    <button type="button" class="btn btn-primary">Adicionar</button>
+                </div>
             </div>
 
             <!-- Lista de serviços adicionados -->
-            <div id="lista-servicos">
+            <div id="lista-servicos" class="grid-container">
                 <!-- Serviço 1 -->
-                <div class="servico-adicionado">
+                <div class="servico-adicionado grid-item">
                     <p><strong>Serviço:</strong> Serviço 1</p>
                     <p><strong>Tipo:</strong> Tipo 1</p>
                     <p><strong>Quantidade:</strong> 2</p>
                     <p><strong>Preço:</strong> R$ 100,00</p>
-                    <button type="button" class="btn-editar" data-toggle="modal"
-                        data-target="#atualizarServicoModal">Atualizar</button>
-                    <button type="button" class="btn-excluir"
-                        data-toggle="modal"
+                    <button type="button" class="btn excluir" data-toggle="modal"
                         data-target="#excluirServicoModal">Excluir</button>
+                    <button type="button" class="btn atualizar" data-toggle="modal"
+                        data-target="#atualizarServicoModal">Atualizar</button>
                 </div>
 
                 <!-- Serviço 2 -->
-                <div class="servico-adicionado">
+                <div class="servico-adicionado grid-item">
                     <p><strong>Serviço:</strong> Serviço 2</p>
                     <p><strong>Tipo:</strong> Tipo 2</p>
                     <p><strong>Quantidade:</strong> 3</p>
                     <p><strong>Preço:</strong> R$ 150,00</p>
-                    <button type="button" class="btn-editar" data-toggle="modal"
-                        data-target="#atualizarServicoModal">Atualizar</button>
-                    <button type="button" class="btn-excluir"
-                        data-toggle="modal"
+                    <button type="button" class="btn excluir" data-toggle="modal"
                         data-target="#excluirServicoModal">Excluir</button>
+                    <button type="button" class="btn atualizar" data-toggle="modal"
+                        data-target="#atualizarServicoModal">Atualizar</button>
                 </div>
 
                 <!-- Serviço 3 -->
-                <div class="servico-adicionado">
+                <div class="servico-adicionado grid-item">
                     <p><strong>Serviço:</strong> Serviço 3</p>
                     <p><strong>Tipo:</strong> Tipo 3</p>
                     <p><strong>Quantidade:</strong> 1</p>
                     <p><strong>Preço:</strong> R$ 75,00</p>
-                    <button type="button" class="btn-editar" data-toggle="modal"
-                        data-target="#atualizarServicoModal">Atualizar</button>
-                    <button type="button" class="btn-excluir"
-                        data-toggle="modal"
+                    <button type="button" class="btn excluir" data-toggle="modal"
                         data-target="#excluirServicoModal">Excluir</button>
+                    <button type="button" class="btn atualizar" data-toggle="modal"
+                        data-target="#atualizarServicoModal">Atualizar</button>
                 </div>
             </div>
 
             <!-- Campo para desconto ou acréscimo -->
             <div class="form-group">
-                <label for="desconto-acrescimo">Desconto/Acréscimo:</label>
+                <label for="desconto-acrescimo">Desconto:</label>
                 <input type="text" class="form-control" id="desconto-acrescimo">
-                <button type="button"
-                    class="btn btn-danger mt-2 mr-2">Desconto</button>
-                <button type="button"
-                    class="btn btn-success mt-2">Acréscimo</button>
+                <label for="desconto-acrescimo">Acréscimo:</label>
+                <input type="text" class="form-control" id="desconto-acrescimo">
             </div>
             <!-- Campo para Confirmar ou voltar -->
-            <div class="form-group">
-                <button type="button" class="btn btn-danger mr-2"
+            <div class="form-group botao">
+                <button type="button" class="btn btn-info voltar"
                     onclick="location.href='index.html';">voltar</button>
                 <button type="button"
-                    class="btn btn-success mt-2 mr-2">Confirmar</button>
+                    class="btn btn-info">Salvar</button>
             </div>
         </div>
         <script src="{{URL}}/app/resources/js/pages.js"></script>

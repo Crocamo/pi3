@@ -91,7 +91,19 @@ class Budget extends Page
                     ]);
                 }
                 return $options;
-
+            case 'ServiceAdd':
+                // OBTÉM OS SERVICOS DO BANCO DE DADOS
+                $serviceResults = EntityService::getservices(null, 'servico ASC');
+                $options = '<option value="0" selected>Selecione um Serviço</option> ';
+                //RENDERIZA O ITEM
+                while ($obService = $serviceResults->fetchObject(entityService::class)) {
+                    $options .= View::render('user/modules/budget/option', [
+                        'value'     => $obService->id_servico,
+                        'label'     => $obService->servico
+                    ]);
+                }
+                return $options;
+    
             default:
                 # code...
                 break;
@@ -122,7 +134,7 @@ class Budget extends Page
     {
         //CONTEÚDO DA HOME
         $content = View::render('user/modules/budget/index', [
-            'title'      => 'Área de criação de orçamentos',
+            'title'      => 'Orçamento',
             'itens'      => self::getBudgetItens(),
             'status'     => self::getStatus($request),
         ]);
@@ -256,12 +268,22 @@ class Budget extends Page
         while ($obBudgetServ = $budgetResults->fetchObject(EntityBudgetServ::class)) {
             //VALIDA A INSTANCIA
             if ($obBudgetServ instanceof EntityBudgetServ) {
+            $preco = $obBudgetServ->preco;
+            // Convertendo o número em string
+            $precoString = strval($preco);
+
+            // Verificando se $preco é um número inteiro
+            if (preg_match('/^\d+$/', $precoString)) {
+                // Se for um número inteiro, adiciona '.00' ao final
+                $preco = $precoString . '.00';
+            }   
+
                 //CONTEÚDO DO FORMULÁRIO 
                 $content .= View::render('user/modules/budget/formServ', [
                     'idBludServ'=> $obBudgetServ->id_serv_orc,
                     'servico'   => $obBudgetServ->servico,
                     'tipo'      => $obBudgetServ->tipo,
-                    'preco'     => $obBudgetServ->preco,
+                    'preco'     => $preco,
                     'observacao'=> $obBudgetServ->observacao    ?? '',
                     'qtd_serv'  => $obBudgetServ->qtd_servico,
                     'count'     => $count
@@ -272,6 +294,7 @@ class Budget extends Page
         //RETORNA A PÁGINA COMPLETA
         return  $content;
     }
+
 
     /**
      * Método responsável por retornar o formulário de edição de um Serviços
@@ -318,9 +341,10 @@ class Budget extends Page
 
         // Extrair o restante da string (após os dois dígitos especiais)
         $restante = doubleval(substr($valor_bonus, 2));
+        
         $checkedPercent = '';
         $checked = '';
-
+        
         if ($digito1 == '-') {
             $checked = 'checked';
         }
@@ -330,7 +354,15 @@ class Budget extends Page
         }
 
         if ($digito2 == '/') {
-            $restante = $restante / 100;
+            // Convertendo o número em string
+            $desconto = strval($restante);
+
+            // Verificando se $preco é um número inteiro
+            if (preg_match('/^\d+$/', $desconto)) {
+                // Se for um número inteiro, adiciona '.00' ao final
+                $restante = $desconto . '.00';
+            }   
+            $restante = number_format(($restante/100), 2, '.', ',');
         }
 
         //CONTEÚDO DO FORMULÁRIO 
@@ -348,6 +380,8 @@ class Budget extends Page
             'servicos'   =>  self::services($obBudget->id_orcamento),
             'checked'    =>  $checked,
             'checkedPercent' => $checkedPercent,
+            'optionS' => self::getSelect('ServiceAdd'),
+            
 
             'status'   => self::getStatus($request)
         ]);
@@ -382,7 +416,7 @@ class Budget extends Page
         // Obtenha os valores dos campos do formulário
         $desconto = isset($postVars['desconto']) && $postVars['desconto'] == 'on';
         $porcentagem = isset($postVars['porcentagem']) && $postVars['porcentagem'] == 'on';
-        $valor_bonus = $postVars['valor_bonus'];
+        $valor_bonus = preg_replace('/[^0-9]/', '', $postVars['valor_bonus']);
 
         // Construa a string $valorBonus com base nas condições
         $valorBonus = ($desconto ? '-' : '+') . ($porcentagem ? '%' : '/') . $valor_bonus;
@@ -427,9 +461,9 @@ class Budget extends Page
             } elseif (strpos($chave, 'servico') === 0) {
                 $indice = substr($chave, 7); // 'servico' tem 7 caracteres
                 $dadosDinamicos[$indice]['servico'] = $valor;
-            } elseif (strpos($chave, 'qtd_servico') === 0) {
-                $indice = substr($chave, 11); // 'qtd_servico' tem 11 caracteres
-                $dadosDinamicos[$indice]['qtd_servico'] = $valor;
+            } elseif (strpos($chave, 'qtd_serv') === 0) {
+                $indice = substr($chave, 8); // 'qtd_serv' tem 8 caracteres
+                $dadosDinamicos[$indice]['qtd_serv'] = $valor;
             } elseif (strpos($chave, 'observacao') === 0) {
                 $indice = substr($chave, 10); // 'observacao' tem 10 caracteres
                 $dadosDinamicos[$indice]['observacao'] = $valor;
@@ -448,10 +482,11 @@ class Budget extends Page
 
             // Verifica se ainda há dados dinâmicos para atualizar
             if (isset($dadosDinamicos[$index])) {
+
                 // Atualiza o objeto $obBludgetServ com os valores de $dadosDinamicos
                 $obBludgetServ->tipo        = $dadosDinamicos[$index]['tipo']           ?? $obBludgetServ->tipo;
                 $obBludgetServ->servico     = $dadosDinamicos[$index]['servico']        ?? $obBludgetServ->servico;
-                $obBludgetServ->qtd_servico = $dadosDinamicos[$index]['qtd_servico']    ?? $obBludgetServ->qtd_servico;
+                $obBludgetServ->qtd_servico = $dadosDinamicos[$index]['qtd_serv']    ?? $obBludgetServ->qtd_servico;
                 $obBludgetServ->preco       = $dadosDinamicos[$index]['preco']          ?? $obBludgetServ->preco;
                 $obBludgetServ->observacao  = $dadosDinamicos[$index]['observacao']     ?? $obBludgetServ->observacao;
 
@@ -467,7 +502,37 @@ class Budget extends Page
 
     
     /**
-     * Método responsável por remover serviço de um orçamento de um orçamento
+     * Método responsável por remover serviço de um orçamento
+     * @param Request $request
+     * @param interger $id
+     * @return string
+     */
+    public static function getAddBlutServ($request, $idServ,$idBudget)
+    {
+        // OBTÉM O SERVIÇO DO BANCO DE DADOS
+        $obServ = EntityService::getServiceById($idServ);       
+
+        //VALIDA A INSTANCIA
+        if (!$obServ instanceof EntityService) {
+           $request->getRouter()->redirect('/user/budget/'.$idBudget.'/edit');
+        }
+        
+        $obBludgetServ              = new EntityBudgetServ;
+        $obBludgetServ->tipo        = $obServ->tipo;
+        $obBludgetServ->servico     = $obServ->servico;
+        $obBludgetServ->qtd_servico = 1;
+        $obBludgetServ->preco       = $obServ->preco;
+        $obBludgetServ->observacao  = '';
+        $obBludgetServ->id_orcamento= $idBudget;
+
+        $obBludgetServ->cadastrar();
+    
+        //REDIRECIONA O USUÁRIO
+        $request->getRouter()->redirect('/user/budget/'.$idBudget.'/edit?status=servCreated');
+    }
+
+    /**
+     * Método responsável por remover serviço de um orçamento
      * @param Request $request
      * @param interger $id
      * @return string
@@ -630,6 +695,9 @@ class Budget extends Page
                 break;
             case 'created':
                 return Alert::getSuccess('Orçamento Criado');
+                break;
+            case 'servCreated':
+                return Alert::getSuccess('Serviço Adicionado');
                 break;
             case 'updated':
                 return Alert::getSuccess('Orçamento atualizado');

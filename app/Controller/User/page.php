@@ -30,16 +30,29 @@ class Page
         ]
     ];
 
+
+    private static function styleCSS($style)
+    {
+        if($style=='login'){
+            return $style = '<link rel="stylesheet" href="'.URL.'/app/resources/css/'.$style.'.css">';
+        }else{
+            return $style = '<link rel="stylesheet" href="'.URL.'/app/resources/css/'.$style.'.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
+        }
+    }
+
     /**
      * Método responsável por retornar o conteúdo (view) da estrutura genérica de página do painel
      * @param string $title
      * @param string $content
      * @return string
      */
-    public static function getPage($title, $content)
+    public static function getPage($title, $content, $style = 'login')
     {
+        $style = self::styleCSS($style);
         return View::render('user/page', [
             'title' => $title,
+            'style' => $style,
             'content' => $content
         ]);
     }
@@ -84,7 +97,7 @@ class Page
         ]);
 
         //RETORNA A PÁGINA RENDERIZADA
-        return self::getPage($title, $contentPanel);
+        return self::getPage($title, $contentPanel, $currentModule);
     }
 
     /**

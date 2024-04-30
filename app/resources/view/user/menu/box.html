@@ -1,14 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <div class="container">
         <a href="{{URL}}/" class="navbar-brand">Projeto Integrador 2024</a>
-        <div class="collapse navbar-collapse">
+        <button class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
 
             <ul class="navbar-nav">
                 {{links}}
             </ul>
 
-            <div class="d-flex justify-content-end" style="width: 100%;">
+            <div class="ml-auto">
                 <a href="{{URL}}/logout">
                     <button type="button" class="btn">SAIR</button>
                 </a>

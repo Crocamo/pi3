@@ -17,7 +17,7 @@ nav {
     color: red;
 }
 
-h2 {
+h4 {
     margin-bottom: 15px;
 }
 
@@ -27,6 +27,9 @@ h2 {
     gap: 10px;
 }
 
+.grid-item {
+    width: auto;
+}
 
 .cliente-infos {
     margin-bottom: 15px;
@@ -49,48 +52,20 @@ h2 {
     border-radius: 8px;
 }
 
-/* Estilo para o contêiner de serviços */
-.servicos-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
 /* Estilo para as informações de serviço */
 .servico-adicionado {
-    width: 95%;
-    margin: 3px;
+    margin-bottom: 10px;
     background-color: hsla(0, 0%, 37%, 0.903);
     color: white;
     border-radius: 15px;
     letter-spacing: 2px;
-    padding: 7px;
-    box-sizing: border-box;
+    padding: 20px 30px 10px 30px;
+    text-align: center;
 }
 
-
-.info-obs {
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 5px;
+.servico-adicionado p {
+    text-align: left;
 }
-
-.info-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.info-row label {
-    flex: 0 0 auto; /* O tamanho do label será automático */
-    margin-right: 10px; /* Espaçamento entre o label e o input */
-}
-
-.info-row input[type="text"] {
-    flex: 1 1 auto; /* O input se expandirá para preencher o restante do espaço */
-    width: 100px; /* Largura do input personalizada */
-}
-
 
 .btn {
     border: none !important;
@@ -101,6 +76,16 @@ h2 {
     margin-top: 5px !important;
     padding: 5px !important;
     padding-inline: 10px !important;
+}
+
+.atualizar {
+    background-color: #0f7987;
+    color: white;
+}
+
+.atualizar:hover {
+    background-color: rgb(0, 160, 187);
+    cursor: pointer;
 }
 
 .excluir {

@@ -1,19 +1,190 @@
+*{
+    box-sizing: border-box !important;
+}
+
+nav {
+    border-radius: 15px;
+}
+
+.enviar{
+    background-color: #0f7987 !important;
+    color: white;
+}
+
+.sair {
+    color: white;
+    background-color: rgb(51,58,64) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    border: none;
+}
+  
+.sair:hover {
+    color: red !important;
+}
+
+h2 {
+    margin-bottom: 10px !important;
+}
+
+.btn {
+    border: none !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-size: auto;
+    width: 25hw;
+    margin-top: 5px !important;
+    padding: 5px !important;
+    padding-inline: 10px !important;
+}
+
+.novo-servico {
+    margin: 10px 5px 10px 5px !important;
+    width: auto !important;
+    font-size: 17px !important;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 10px;
+}
+
+.grid-item {
+    width: auto;
+}
+
 /* Estilo para as informações de serviço */
 .servico-info {
-    margin-bottom: 10px;
-    background-color: rgb(100, 90, 200);
+    margin-bottom: 15px;
+    background-color: hsla(0, 0%, 37%, 0.903);
     color: white;
     border-radius: 20px;
     letter-spacing: 2px;
     padding: 20px 30px 10px 30px;
-    width: 300px;
+    text-align: center;
 }
 
 .servico-info p {
-    margin-bottom: 0.5rem;
+    text-align: left;
 }
 
-.servico-info .btn {
-    margin-right: 0.5rem;
+.excluir {
+    background-color: #0f7987 !important;
+    margin-right: 10px;
 }
 
+.excluir:hover {
+    background-color: #8c3f2f !important;
+    cursor: pointer;
+}
+
+.atualizar {
+    background-color: #0f7987 !important;
+}
+
+.atualizar:hover {
+    background-color: rgb(0, 160, 187) !important;
+    cursor: pointer;
+}
+
+.modal-header {
+    border-radius: 0px !important;
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait){
+
+    *{
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    body {
+        background-position: center;
+    }
+
+    nav {
+        border-radius: 8px !important;
+        margin: 12px !important;
+        margin-top: 0 !important;
+        padding: 12px !important;
+    }
+
+    .navbar-brand {
+        font-size: 17px !important;
+    }
+
+    h2 {
+        font-size: 25px !important;
+    }
+
+    .container base {
+        padding: 15px !important;
+        margin: 10px !important;
+        width: 100hw !important;
+    }
+
+    .botao {
+        text-align: center !important;
+    }
+
+    .servico-info {
+        width: auto !important;
+        border-radius: 8px;
+        font-size: 13px;
+        padding: 8px !important;
+        margin: 12px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .servico-info p {
+        margin-top: 10px !important;
+    }
+
+}
+
+@media only screen and (min-width: 321px) and (max-width: 600px) and (orientation: portrait) {
+    
+    *{
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    body {
+        background-position: center;
+    }
+
+    nav {
+        margin: 12px !important;
+        margin-top: 0 !important;
+        border-radius: 8px !important;
+        padding: 12px !important;
+    }
+    
+    .navbar-brand {
+        font-size: auto !important;
+    }
+
+    .container base {
+        padding: 15px !important;
+        margin: 10px !important;
+    }
+
+    .botao {
+        text-align: center !important;
+    }
+
+    .servico-info {
+        margin: 12px !important;
+        width: 100hw !important;
+        border-radius: 8px;
+        font-size: auto;
+        padding: 8px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .servico-info p {
+        margin: 10px !important;
+    }
+
+}

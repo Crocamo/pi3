@@ -65,7 +65,7 @@ class Client extends Page
         $paginaAtual = $queryParams['page'] ?? 1;
 
         //INSTANCIA DE PAGINAÇÃO
-        $obPagination = new Pagination($quantidadetotal, $paginaAtual, 3);
+        $obPagination = new Pagination($quantidadetotal, $paginaAtual, 6);
 
         //RESULTADOS DA PÁGINA
         $results = entityClient::getClients($where, 'id_cli DESC', $obPagination->getLimit());
@@ -245,7 +245,7 @@ class Client extends Page
             'status'   => self::getStatus($request)
         ]);
         //RETORNA A PÁGINA COMPLETA
-        return parent::getPainel('Atualizar Cliente > Univesp', $content, 'Client');
+        return parent::getPainel('Atualizar Cliente > Univesp', $content, 'client');
     }
 
     /**

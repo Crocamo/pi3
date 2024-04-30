@@ -1,24 +1,29 @@
-<!-- Entradas fictícias para orçamentos em aberto -->
 <tr>
     <td>{{nomeCli}}</td>
     <td>{{totalF}}</td>
     <td>{{data_ini}}</td>
     <td>
         <button type="button" class="btn btn-info detalhes-btn" data-toggle="modal" data-target="#detalhesOrcamentoModal"
-                            data-nomecli="{{nomeCli}}" data-telefone="{{telefone}}" data-endereco="{{endereco}}"
-                            data-cep="{{cep}}" data-cidade="{{cidade}}" data-estado="{{estado}}" data-status="{{status}}"
-                            data-data_ini="{{data_ini}}" data-total="{{total}}" data-servicos="{{servicos}}"
-                            data-desconto="{{desconto}}" data-Final="{{final}}">
-        Detalhes</button>
-    </td>
-    <td>
-        <a href="{{URL}}/user/budget/{{id_orcamento}}/edit"> 
-            <button type="button" class="btn btn-primary">Editar</button> 
+                data-nomecli="{{nomeCli}}" data-telefone="{{telefone}}" data-endereco="{{endereco}}"
+                data-cep="{{cep}}" data-cidade="{{cidade}}" data-estado="{{estado}}" data-status="{{status}}"
+                data-data_ini="{{data_ini}}" data-total="{{total}}" data-servicos="{{servicos}}"
+                data-desconto="{{desconto}}" data-Final="{{final}}">
+            <span class="btn-icon show-on-small-screen"><i class="fas fa-info-circle"></i></span> <!-- Ícone de detalhes -->
+            <span class="btn-text">Detalhes</span>
+        </button>
+    
+        <a href="{{URL}}/user/budget/{{id_orcamento}}/edit">
+            <button type="button" class="btn btn-primary">
+                <span class="btn-icon show-on-small-screen"><i class="fas fa-edit"></i></span> <!-- Ícone de edição -->
+                <span class="btn-text">Editar</span>
+            </button>
         </a>
-    </td>
-    <td>
-        <a href="{{URL}}/user/budget/{{id_orcamento}}/delete"> 
-            <button type="button" class="btn btn-light">Imprimir</button> 
+    
+        <a href="{{URL}}/user/budget/{{id_orcamento}}/imprimir">
+            <button type="button" class="btn btn-light">
+                <span class="btn-icon show-on-small-screen"><i class="fas fa-print"></i></span> <!-- Ícone de impressão -->
+                <span class="btn-text">Imprimir</span>
+            </button>
         </a>
     </td>
 </tr> 

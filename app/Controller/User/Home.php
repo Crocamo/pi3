@@ -115,7 +115,7 @@ class Home extends Page
             }else {
                 $data = $obBudget->data_fim;
             }
-
+ 
 
             $valor_bonus = $obBudget->valor_bonus;
             // Extrair os dois primeiros dígitos especiais
@@ -129,9 +129,10 @@ class Home extends Page
            // Realizando operações com base nos dígitos especiais
             if ($digito2 == '%') {
                 if ($digito1 == '-') {
-                    $totalF = $total -($total*$restante); // subtrai a porcentagem do total
+                    $totalF = number_format($total - ($total * $restante), 2, '.', '');
+
                 } elseif ($digito1 == '+') {
-                    $totalF = $total +($total*$restante); // adiciona a porcentagem ao total
+                    $totalF = number_format($total + ($total * $restante), 2, '.', '');
                 }
             } else {
                 if ($digito1 == '-') {
@@ -140,6 +141,7 @@ class Home extends Page
                     $totalF = $total+$restante; // adiciona o valor ao total
                 }
             }
+            
 
             $telefone_formatado = self::formatar($obBudget->telefone,'tel');
             $cep_formatado = self::formatar($cep,'cep');

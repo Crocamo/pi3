@@ -1,0 +1,205 @@
+*{
+  box-sizing: border-box !important;
+}
+
+nav {
+  border-radius: 15px;
+}
+
+.sair {
+  color: white;
+  background-color: rgb(51,58,64) !important;
+  padding: 0px;
+  border: none;
+}
+
+.sair:hover {
+  color: red;
+}
+
+.tbl_budget_opened {
+  background-color: hsla(0, 0%, 37%, 0.903);
+  color: white;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  padding: 10px 30px 0px 30px;
+}
+
+.tbl_budget_closed {
+  background-color: hsla(0, 0%, 37%, 0.903);
+  color: white;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  padding: 10px 30px 0px 30px;
+}
+
+.btn {
+  border: none !important;
+  border-radius: 8px !important;
+  color: white !important;
+  font-size: auto;
+  width: 25hw;
+  margin-top: 5px !important;
+  padding: 5px !important;
+  padding-inline: 10px !important;
+}
+
+.detalhes {
+  background-color: #0f7987 !important;
+  margin-right: 10px;
+}
+
+.detalhes:hover {
+  background-color: rgb(0, 160, 187) !important;
+  cursor: pointer;
+}
+
+.modal-header {
+  border-radius: 0px !important;
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait){
+  
+  *{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  body {
+    background-position: center;
+  }
+  
+  nav {
+    border-radius: 8px !important;
+    margin: 12px !important;
+    margin-top: 0 !important;
+    padding: 12px !important;
+  }
+
+  .navbar-brand {
+    font-size: 17px !important;
+  }
+
+  h2 {
+    font-size: 25px !important;
+  }
+
+  h4 {
+    font-size: 16px !important;
+  }
+
+  .container base {
+    padding: 15px !important;
+    margin: 10px !important;
+    width: 100hw !important;
+  }
+
+  .tbl_budget_opened {
+    width: 100hw;
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 8px !important;
+    margin: 12px !important;
+  }
+
+  .tbl_budget_closed {
+    width: 100hw;
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 8px !important;
+    margin: 12px !important;
+  }
+
+  th {
+    padding: 2px !important;
+    gap: 2px !important;
+    margin: 2px !important;
+    border-spacing: none !important;
+  }
+
+  td {
+    padding: 2px !important;
+    gap: 2px !important;
+    margin: 2px !important;
+    border-spacing: none !important;
+  }
+
+  .btn {
+    width: auto !important;
+    font-size: 90% !important;
+  }
+
+}
+
+@media only screen and (min-width: 321px) and (max-width: 600px) and (orientation: portrait) {
+  
+  *{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  body {
+    background-position: center;
+  }
+
+  nav {
+    border-radius: 8px !important;
+    margin: 12px !important;
+    margin-top: 0 !important;
+    padding: 12px !important;
+  }
+
+  .navbar-brand {
+    font-size: auto !important;
+  }
+
+  .container base {
+    padding: 15px !important;
+    margin: 10px !important;
+  }
+
+  h2 {
+    font-size: auto !important;
+  }
+
+  h4 {
+    font-size: auto !important;
+  }
+
+  .tbl_budget_opened {
+    width: 100hw;
+    border-radius: 8px;
+    font-size: auto;
+    padding: 8px !important;
+    margin: 12px !important;
+  }
+
+  .tbl_budget_closed {
+    width: 100hw;
+    border-radius: 8px;
+    font-size: auto;
+    padding: 8px !important;
+    margin: 12px !important;
+  }
+
+  th {
+    padding: 2px !important;
+    gap: 2px !important;
+    margin: 2px !important;
+    border-spacing: none !important;
+
+  }
+
+  td {
+    padding: 2px !important;
+    gap: 2px !important;
+    margin: 2px !important;
+    border-spacing: none !important;
+  }
+
+  .btn {
+    width: auto !important;
+    font-size: 90% !important;
+  }
+
+}

@@ -1,22 +1,18 @@
-<div class="cliente-info">
+<div class="cliente-info grid-item">
     <p><strong>Nome:</strong> {{nome}}</p>
     <p><strong>Email:</strong> {{email}}</p>
     <p><strong>Telefone:</strong> {{tel}}</p>
     <p><strong>Endereço:</strong> {{endereco}}</p>
-    <!-- <input type="hidden" id="cpf" value="{{cpf}}">
-    <input type="hidden" id="cep" value="{{cep}}">
-    <input type="hidden" id="cidade" value="{{cidade}}">
-    <input type="hidden" id="estado" value="{{estado}}"> -->
-    <button type="button" class="btn btn-info detalhes-btn" data-toggle="modal" data-target="#detalhesClienteModal" 
+    <button type="button" class="btn detalhes" data-toggle="modal" data-target="#detalhesClienteModal" 
                         data-nome="{{nome}}" data-email="{{email}}" data-telefone="{{tel}}" data-endereco="{{endereco}}"
                         data-cpf="{{cpf}}" data-cep="{{cep}}" data-cidade="{{cidade}}" data-estado="{{estado}}">
                     Detalhes
                 </button>
 
     <a href="{{URL}}/user/client/{{id_cli}}/edit">
-        <button type="button" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn atualizar">Editar</button>
     </a>
     <a href="{{URL}}/user/client/{{id_cli}}/delete">
-        <button type="button" class="btn btn-danger">excluir</button>
+        <button type="button" class="btn excluir">excluir</button>
     </a>
 </div>
