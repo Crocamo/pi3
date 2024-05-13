@@ -2,6 +2,10 @@
     box-sizing: border-box !important;
 }
 
+h2 {
+    color: white;
+}
+
 nav {
     border-radius: 15px;
 }
@@ -23,9 +27,6 @@ nav {
     color: red !important;
 }
 
-h2 {
-    margin-bottom: 10px !important;
-}
 
 .btn {
     border: none !important;
@@ -42,16 +43,6 @@ h2 {
     margin: 10px 5px 10px 5px !important;
     width: auto !important;
     font-size: 17px !important;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 10px;
-}
-
-.grid-item {
-    width: auto;
 }
 
 /* Estilo para as informações de serviço */

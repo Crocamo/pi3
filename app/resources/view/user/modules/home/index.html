@@ -1,6 +1,5 @@
-
 <div class="container base mt-1">
-    <h2>Sistema de Orçamento</h2>
+    <h2 style="color: white; font-weight: bold;">Sistema de Orçamento</h2>
 
     <div class="tbl_budget_opened">
         <!-- Lista de orçamentos em aberto -->
@@ -56,22 +55,51 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p><strong>Nomecliente:</strong> <span
-                        id="modalNomeCli"></span></p>
-                <p><strong>Telefone:</strong> <span
-                        id="modalTelefone"></span></p>
-                <p><strong>Endereço:</strong> <span
-                        id="modalEndereco"></span></p>
-                <p><strong>CEP:</strong> <span id="modalCEP"></span></p>
-                <p><strong>Cidade:</strong> <span id="modalCidade"></span></p>
-                <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
-                <p><strong>Status:</strong> <span id="modalStatus"></span></p>
-                <p><strong>Data inicial:</strong> <span
-                        id="modalData"></span></p>
-                <p><strong>Valor Total:</strong> <span
-                        id="modalValor"></span></p>
-                <p><strong>Valor Final:</strong> <span
-                        id="modalFinal"></span></p>
+                <div class="row">
+                    <!-- Primeira linha -->
+                    <div class="col-sm-6">
+                        <p><strong>Nome cliente:</strong> <span id="modalNomeCli"></span></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><strong>Telefone:</strong> <span id="modalTelefone"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Segunda linha -->
+                    <div class="col-sm-6">
+                        <p><strong>Endereço:</strong> <span id="modalEndereco"></span></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><strong>CEP:</strong> <span id="modalCEP"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Terceira linha -->
+                    <div class="col-sm-6">
+                        <p><strong>Cidade:</strong> <span id="modalCidade"></span></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Quarta linha -->
+                    <div class="col-sm-6">
+                        <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><strong>Data inicial:</strong> <span id="modalData"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Quinta linha -->
+                    <div class="col-sm-6">
+                        <p><strong>Valor Total:</strong> <span id="modalValor"></span></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><strong>Valor Final:</strong> <span id="modalFinal"></span></p>
+                    </div>
+                </div>
                 <div class="modal-service"></div>
             </div>
             <div class="modal-footer">
@@ -129,9 +157,11 @@
             var obs = obss.split('/')[0];
 
             // Criar os elementos HTML para exibir os detalhes do serviço no modal
-            var servicoHTML = '<p><strong>Servico:</strong> ' + servico + '</p>';
-            var precoHTML = '<p><strong>Preço:</strong> ' + preco + '</p>';
-            var obsHTML = '<p><strong>Obs:</strong> ' + obs + '</p>';
+            var servicoHTML = '<div class="row"><div class="col-sm-4"><p><strong>Servico:</strong> ' + servico + '</div>';
+            var precoHTML = '<div class="col-sm-3"><strong>Preço:</strong> ' + preco + '</p> </div>';
+            var obsHTML = '<div class="col-sm-4"><p><strong>Obs:</strong> ' + obs+'</p> </div>';
+
+
 
             // Adicionar os elementos HTML ao modal
             $('.modal-service').append(servicoHTML + precoHTML + obsHTML);

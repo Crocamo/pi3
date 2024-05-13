@@ -1,12 +1,14 @@
 <div class="container base mt-1">
-    <h2>Serviços</h2>
+    <h2 style="color: white; font-weight: bold;">Serviços</h2>
     {{status}}
 
     <div Class="a">
         <a href="{{URL}}/user/service/new">
-            <button type="button" class=" btn btn-info novo-servico"
-            data-toggle="modal" data-target="#novoServicoModal">Novo
-            Serviço</button>
+            <button type="button" class=" btn novo-servico"
+            data-toggle="modal" data-target="#novoServicoModal">
+                <span class="btn-icon show-on-small-screen"><i class="fas fa-plus-circle"></i></span> <!-- Ícone de edição -->
+                <span class="btn-text">Novo Serviço</span>
+            </button>
         </a>
     </div>
     <div class="grid-container">

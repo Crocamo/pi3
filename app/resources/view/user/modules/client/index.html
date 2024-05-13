@@ -1,21 +1,26 @@
 <div class="container base mt-1">
-    <h2>Clientes</h2>
+    <h2 style="color: white; font-weight: bold;">Clientes</h2>
     {{status}}
     <div class="botao">
         <a href="{{URL}}/user/client/new">
-            <button type="button" class="btn btn-info novo-cliente ">Novo Cliente</button>
+            <button type="button" class="btn novo-cliente ">
+                <span class="btn-icon show-on-small-screen"><i class="fas fa-plus-circle"></i></span> <!-- Ícone de edição -->
+                <span class="btn-text">Novo Cliente</span>
+            </button>
         </a>
 
         <form method="post">
             <div class="row">
                 <div class="col col-6 form-group my-3">
-                    <input type="text" name="InputSearch" class="form-control"
+                    <input type="text" name="InputSearch" class="form-control nomeCli"
                         placeholder="Nome do cliente aqui!" value
                         required autofocus>
                 </div>
                 <div class="col col-1 form-group my-3">
-                    <button type="submit"
-                        class="btn btn-info pesquisar">Pesquisar</button>
+                    <button type="submit" class="btn pesquisar">
+                        <span class="btn-icon show-on-small-screen"><i class="fas fa-search"></i></span> <!-- Ícone de edição -->
+                        <span class="btn-text">Pesquisar</span>
+                </button>
                 </div>
             </div>
         </form>

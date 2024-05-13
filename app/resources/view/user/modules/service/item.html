@@ -4,10 +4,16 @@
     <p><strong>Área:</strong> {{area_servico}}</p>
     <p><strong>Preço por área: R$:</strong> {{preco}}</p>
     <a href="{{URL}}/user/service/{{id_servico}}/edit">
-        <button type="button" class="btn atualizar" {{estado}}>Atualizar</button>
+        <button type="button" class="btn atualizar" {{estado}}>
+            <span class="btn-icon show-on-small-screen"><i class="fas fa-edit"></i></span> <!-- Ícone de edição -->
+            <span class="btn-text">Atualizar</span>
+        </button>
     </a>
     <a href="{{URL}}/user/service/{{id_servico}}/delete">
-        <button type="button" class="btn excluir">excluir</button>
+        <button type="button" class="btn excluir">
+            <span class="btn-icon show-on-small-screen"><i class="fas fa-trash"></i></span> <!-- Ícone de impressão -->
+            <span class="btn-text">Excluir</span>
+        </button>
     </a>
 
 </div>

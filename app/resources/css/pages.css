@@ -1,9 +1,32 @@
-*{
+/*All pages*/
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    text-decoration: none !important;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+/*All pages*/
+
+/* menu */
+.ml-auto .btn {
+    background: none !important;
+    color: white !important;
+}
+
+.ml-auto .btn:hover {
+    color: red !important;
+}
+/* menu */
+
+.container {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.base {
+    margin-top: 20px;
 }
 
 .login-box {
@@ -23,11 +46,41 @@ h1 {
     font-size: 45px !important;
 }
 
+h2 {
+    margin-bottom: 15px;
+}
+
+nav {
+    border-radius: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 10px;
+}
+
+.grid-item {
+    width: auto;
+}
+
+.btn {
+    background-color: #0f7987 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: auto;
+    width: 25hw;
+    margin-top: 5px !important;
+    padding: 5px !important;
+    padding-inline: 10px !important;
+}
+
+
 @media only screen and (max-width: 600px) {
     .login-box {
-      width: 100%;
-      margin-top: 50%;
-      border-radius: 0px;
+        width: 100%;
+        margin-top: 50%;
+        border-radius: 0px;
     }
 }
 
@@ -55,10 +108,11 @@ button {
     color: white;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
     background-color: rgba(54, 54, 54, 0.726);
     font-weight: bolder;
     color: white;
     border: none;
 }
+

@@ -2,8 +2,8 @@
     <td>{{nomeCli}}</td>
     <td>{{totalF}}</td>
     <td>{{data_ini}}</td>
-    <td>
-        <button type="button" class="btn btn-info detalhes-btn" data-toggle="modal" data-target="#detalhesOrcamentoModal"
+    <td class="btn-container">
+        <button type="button" class="btn detalhes-btn" data-toggle="modal" data-target="#detalhesOrcamentoModal"
                 data-nomecli="{{nomeCli}}" data-telefone="{{telefone}}" data-endereco="{{endereco}}"
                 data-cep="{{cep}}" data-cidade="{{cidade}}" data-estado="{{estado}}" data-status="{{status}}"
                 data-data_ini="{{data_ini}}" data-total="{{total}}" data-servicos="{{servicos}}"
@@ -13,14 +13,14 @@
         </button>
     
         <a href="{{URL}}/user/budget/{{id_orcamento}}/edit">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn">
                 <span class="btn-icon show-on-small-screen"><i class="fas fa-edit"></i></span> <!-- Ícone de edição -->
                 <span class="btn-text">Editar</span>
             </button>
         </a>
     
         <a href="{{URL}}/user/{{id_orcamento}}/imprimir">
-            <button type="button" class="btn btn-light">
+            <button type="button" class="btn">
                 <span class="btn-icon show-on-small-screen"><i class="fas fa-print"></i></span> <!-- Ícone de impressão -->
                 <span class="btn-text">Imprimir</span>
             </button>

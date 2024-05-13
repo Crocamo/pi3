@@ -212,24 +212,24 @@ class Home extends Page
         $pdf->Cell(0, 10, 'Orçamento de Prestação de Serviço', 0, 1, 'C');
 
         $pdf->SetFont('helvetica', 'B', 12);
-        $pdf->Cell(50, 10, 'Area do profissional de', 0, 0, 'L');
+        $pdf->Cell(50, 10, 'Nome do profissional', 0, 0, 'L');
         $pdf->SetFont('helvetica', '', 12);
-        $pdf->Cell(55, 10, 'Nome do profissional', 0, 1, 'L');
+        $pdf->Cell(55, 10, 'José Luiz Alvenaria', 0, 1, 'L');
 
         $pdf->SetFont('helvetica', 'B', 12);
-        $pdf->Cell(15, 10, 'CNPJ:', 0, 0, 'L');
+        $pdf->Cell(15, 10, 'CPF:', 0, 0, 'L');
         $pdf->SetFont('helvetica', '', 12);
-        $pdf->Cell(100, 10, '000000000/0000', 0, 1, 'L');
+        $pdf->Cell(100, 10, '123.456.789-12', 0, 1, 'L');
 
         $pdf->SetFont('helvetica', 'B', 12);
         $pdf->Cell(20, 10, 'Telefone:', 0, 0, 'L');
         $pdf->SetFont('helvetica', '', 12);
-        $pdf->Cell(50, 10, '55 (11) 9 9999-9999', 0, 0, 'L');
+        $pdf->Cell(50, 10, '55 (11) 9 9876-5432', 0, 0, 'L');
 
         $pdf->SetFont('helvetica', 'B', 12);
         $pdf->Cell(15, 10, 'E-Mail:', 0, 0, 'L');
         $pdf->SetFont('helvetica', '', 12);
-        $pdf->Cell(100, 10, 'email@email.com.br', 0, 1, 'L');
+        $pdf->Cell(100, 10, 'joseluizalvenaria@gmail.com.br', 0, 1, 'L');
 
         // detalhes do cliente do orçamento
         $pdf->Ln(10); // Espaço em branco entre seções
@@ -250,14 +250,14 @@ class Home extends Page
 
         // Tabela para exibir detalhes dos serviços
         $pdf->SetFont('helvetica', 'B', 12);
-        $pdf->Cell(90, 10, 'Endereço:', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'CEP:', 1, 0, 'C');
+        $pdf->Cell(85, 10, 'Endereço:', 1, 0, 'C');
+        $pdf->Cell(35, 10, 'CEP:', 1, 0, 'C');
         $pdf->Cell(40, 10, 'Cidade:', 1, 0, 'C');
         $pdf->Cell(20, 10, 'Estado:', 1, 1, 'C');
      
         $pdf->SetFont('helvetica', '', 12);
-        $pdf->Cell(90, 10, $obBudget->endereco, 1, 0, 'C');
-        $pdf->Cell(30, 10, self::formatar($obBudget->cep, 'cep'), 1, 0, 'C');
+        $pdf->Cell(85, 10, $obBudget->endereco, 1, 0, 'C');
+        $pdf->Cell(35, 10, self::formatar($obBudget->cep, 'cep'), 1, 0, 'C');
         $pdf->Cell(40, 10, $obBudget->cidade, 1, 0, 'C');
         $pdf->Cell(20, 10, $obBudget->estado, 1, 1, 'C');
 

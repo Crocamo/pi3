@@ -1,33 +1,11 @@
-* {
-  box-sizing: border-box !important;
-}
-
-.container {
-  max-width: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.base {
-  margin-top: 20px;
-}
-
+.tbl_budget_closed,
 .tbl_budget_opened {
   background-color: hsla(0, 0%, 37%, 0.903);
   color: white;
   border-radius: 20px;
-  letter-spacing: 2px;
-  padding: 10px;
+  padding: 20px;
   margin-bottom: 20px;
-}
-
-.tbl_budget_closed {
-  background-color: hsla(0, 0%, 37%, 0.903);
-  color: white;
-  border-radius: 20px;
-  letter-spacing: 2px;
-  padding: 10px;
-  margin-bottom: 20px;
+  overflow-x: auto; /* Adicionando scroll horizontal quando necessário */
 }
 
 .tbl_budget_opened table,
@@ -40,15 +18,36 @@
 .tbl_budget_closed th,
 .tbl_budget_opened td,
 .tbl_budget_closed td {
-  padding: 8px;
-  text-align: left;
+  padding: 12px;
+  text-align: center;
+  color: white;
 }
 
 .tbl_budget_opened th,
 .tbl_budget_closed th {
   background-color: #333;
-  color: white;
 }
+
+.tbl_budget_closed th:nth-child(1)
+.tbl_budget_opened th:nth-child(1) {
+  width: 30%; /* Definir largura para a primeira coluna (Nome Cliente) */
+}
+
+.tbl_budget_closed th:nth-child(2),
+.tbl_budget_opened th:nth-child(2) {
+  width: 15%; /* Definir largura para a segunda coluna (Valor) */
+}
+
+.tbl_budget_closed th:nth-child(3),
+.tbl_budget_opened th:nth-child(3) {
+  width: 18%; /* Definir largura para a terceira coluna (Data de Início) */
+}
+
+.tbl_budget_closed th:nth-child(4),
+.tbl_budget_opened th:nth-child(4) {
+  width: 37%; /* Definir largura para a quarta coluna (Ações) */
+}
+
 
 .tbl_budget_opened tr:nth-child(even),
 .tbl_budget_closed tr:nth-child(even) {
@@ -60,43 +59,50 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.btn {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 5px;
+h2 {
+  color: white;
+}
+
+.btn-container {
+  text-align: right; /* Alinhar os botões à direita */
+}
+
+.detalhes:hover {
+  background-color: rgb(0, 160, 187) !important;
   cursor: pointer;
 }
 
-.btn-info {
-  background-color: #5bc0de;
+.atualizar:hover {
+  background-color: rgb(0, 160, 187) !important;
+  cursor: pointer;
+}
+
+.excluir:hover {
+  background-color: #8c3f2f !important;
+  cursor: pointer;
+}
+
+.btn-icon{
   color: white;
 }
 
-.btn-primary {
-  background-color: #007bff;
+.btn-text{
   color: white;
 }
 
-.btn-light {
-  background-color: #f8f9fa;
-  color: #212529;
-}
-
-.ml-auto .btn {
-  color: white;
-}
-
-.ml-auto .btn:hover {
-  color: red;
-}
-
-@media only screen and (max-width: 768px) {
-
+@media (max-width: 1200px) {
   .tbl_budget_opened th,
-  .tbl_budget_closed th,
-  .tbl_budget_opened td,
-  .tbl_budget_closed td {
-    padding: 6px;
+  .tbl_budget_opened td {
+      font-size: 14px; /* Reduzir o tamanho da fonte em telas menores */
   }
 
+  .btn-container {
+    text-align: center; /* Centralizar os botões quando a tela for menor que 768px */
+  }
+
+  .btn {
+    display: block;
+    width: 100%; /* Botões ocupam largura total */
+    margin-bottom: 10px; /* Espaçamento entre os botões */
+  }
 }

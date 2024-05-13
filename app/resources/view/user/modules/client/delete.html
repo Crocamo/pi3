@@ -1,15 +1,18 @@
 <div class="container base mt-1">
-    <h1>Descartar Cliente</h1>
+    <h1 style="color: white; font-weight: bold;">Descartar Cliente</h1>
 
     <div class="cliente-info">
         <form method="post">
-            Você deseja realmente excluir o Cliente <b>{{nome}}</b> será permanente!
             <div class="form-group">
+            Você deseja realmente excluir o Cliente <b>{{nome}}</b> será permanente!
+            </div>
+            <div class="form-group mt-3">
                 <button type="submit" class="btn btn-danger">Descartar</button>
                 <a href="{{URL}}/user/client">
-                    <button type="button" class="btn btn-warning">Voltar</button>
+                    <button type="button" class="btn btn-danger">Voltar</button>
                 </a>
             </div>
-        </div>
-    </form>
+       
+        </form>
+    </div>
 </div>

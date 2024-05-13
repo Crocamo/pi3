@@ -3,16 +3,30 @@
     <p><strong>Email:</strong> {{email}}</p>
     <p><strong>Telefone:</strong> {{tel}}</p>
     <p><strong>Endereço:</strong> {{endereco}}</p>
-    <button type="button" class="btn detalhes" data-toggle="modal" data-target="#detalhesClienteModal" 
-                        data-nome="{{nome}}" data-email="{{email}}" data-telefone="{{tel}}" data-endereco="{{endereco}}"
-                        data-cpf="{{cpf}}" data-cep="{{cep}}" data-cidade="{{cidade}}" data-estado="{{estado}}">
-                    Detalhes
-                </button>
+    <td class="btn-container">
 
-    <a href="{{URL}}/user/client/{{id_cli}}/edit">
-        <button type="button" class="btn atualizar">Editar</button>
-    </a>
-    <a href="{{URL}}/user/client/{{id_cli}}/delete">
-        <button type="button" class="btn excluir">excluir</button>
-    </a>
+        <button type="button" class="btn detalhes" data-toggle="modal" data-target="#detalhesClienteModal"
+            data-nome="{{nome}}" data-email="{{email}}" data-telefone="{{tel}}" data-endereco="{{endereco}}"
+            data-cpf="{{cpf}}" data-cep="{{cep}}" data-cidade="{{cidade}}" data-estado="{{estado}}">
+            <span class="btn-icon show-on-small-screen"><i class="fas fa-info-circle"></i></span>
+            <!-- Ícone de detalhes -->
+            <span class="btn-text">Detalhes</span>
+        </button>
+
+        <a href="{{URL}}/user/client/{{id_cli}}/edit">
+            <button type="button" class="btn atualizar">
+                <span class="btn-icon show-on-small-screen"><i class="fas fa-edit"></i></span> <!-- Ícone de edição -->
+                <span class="btn-text">Editar</span>
+            </button>
+
+        </a>
+
+        <a href="{{URL}}/user/client/{{id_cli}}/delete">
+            <button type="button" class="btn excluir">
+                <span class="btn-icon show-on-small-screen"><i class="fas fa-trash"></i></span>
+                <!-- Ícone de impressão -->
+                <span class="btn-text">Excluir</span>
+            </button>
+        </a>
+    </td>
 </div>

@@ -1,88 +1,76 @@
-*{
-    box-sizing: border-box !important;
-}
-
-nav {
-    border-radius: 15px;
-}
-
-.sair {
-    color: white;
-    background-color: rgb(51,58,64) !important;
-    padding: 0px !important;
-    margin: 0px !important;
-    border: none;
-}
-  
-.sair:hover {
-    color: red !important;
-}
-
 h2 {
-    margin-bottom: 10px !important;
+    color: white;
 }
 
-.pesquisar {
-    margin: 10px 5px 10px 5px !important;
-    width: auto !important;
-    font-size: 17px !important;
+.botao {
+    display: flex;
+    align-items: center;
 }
 
-.pesquisar:hover {
-    background-color: #0f7987 !important;
-    cursor: pointer;
+.botao .form-group {
+    width: 100%;
+    /* Garantir que o campo de entrada ocupe toda a largura disponível */
+    max-width: 500px;
+    /* Definir uma largura máxima para o campo de entrada */
 }
 
-.novo-cliente {
-    margin: 10px 5px 10px 0px !important;
-    margin-right: 15px;
-    width: auto !important;
-    font-size: 17px !important;
+.botao .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
 }
 
-.novo-cliente:hover {
-    background-color: #0f7987 !important;
-    cursor: pointer;
+.botao .btn {
+    margin-right: 20px;
+    /* Espaçamento entre os botões */
+    font-size: 16px;
+    /* Tamanho da fonte dos botões */
 }
 
-.grid-container {
+.botao .pesquisar {
+    width: 130px;
+}
+
+.clientes-display {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 10px;
-}
-
-.grid-item {
-    width: auto;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Layout responsivo com grid */
+    gap: 20px;
+    /* Espaçamento entre os itens */
 }
 
 .cliente-info {
-    margin-bottom: 10px;
     background-color: hsla(0, 0%, 37%, 0.903);
     color: white;
     border-radius: 15px;
-    letter-spacing: 2px;
-    padding: 20px 30px 10px 30px;
-    text-align: center;
+    padding: 10px;
+    text-align: left;
+    /* Alinhar o texto à esquerda */
 }
 
 .cliente-info p {
-    text-align: left;
+    margin-bottom: 10px;
+    /* Espaçamento entre os parágrafos */
 }
 
-.btn {
-    border: none !important;
-    border-radius: 8px !important;
-    color: white !important;
-    font-size: auto;
-    width: 25hw;
-    margin-top: 5px !important;
-    padding: 5px !important;
-    padding-inline: 10px !important;
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinhar os botões à direita */
 }
 
-.excluir {
-    background-color: #0f7987 !important;
-    margin-right: 10px;
+.pesquisar:hover {
+    background-color: rgb(0, 160, 187) !important;
+    cursor: pointer;
+}
+.cliente-info .novo{
+    color: white;
+}
+.novo-cliente:hover {
+    background-color: rgb(0, 160, 187) !important;
+    cursor: pointer;
 }
 
 .excluir:hover {
@@ -90,18 +78,9 @@ h2 {
     cursor: pointer;
 }
 
-.detalhes {
-    background-color: #0f7987 !important;
-    margin-right: 10px;
-}
-
 .detalhes:hover {
     background-color: rgb(0, 160, 187) !important;
     cursor: pointer;
-}
-
-.atualizar {
-    background-color: #0f7987 !important;
 }
 
 .atualizar:hover {
@@ -109,13 +88,23 @@ h2 {
     cursor: pointer;
 }
 
+.btn-icon {
+    color: white;
+}
+
+.btn-text {
+    color: white;
+}
+
 .modal-header {
     border-radius: 0px !important;
 }
 
-@media only screen and (max-width: 320px) and (orientation: portrait){
 
-    *{
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+
+    * {
         padding: 0 !important;
         margin: 0 !important;
     }
@@ -165,8 +154,8 @@ h2 {
 }
 
 @media only screen and (min-width: 321px) and (max-width: 600px) and (orientation: portrait) {
-    
-    *{
+
+    * {
         padding: 0 !important;
         margin: 0 !important;
     }
@@ -181,7 +170,7 @@ h2 {
         border-radius: 8px !important;
         padding: 12px !important;
     }
-    
+
     .navbar-brand {
         font-size: auto !important;
     }
